@@ -11,11 +11,13 @@ input * xkb_layout "de"
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term /usr/bin/termite
 # Your preferred application launcher
@@ -56,6 +58,8 @@ exec swayidle -w \
           timeout 600 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 000000'
+
+seat * hide_cursor 8000
 
 ### Input configuration
 #
