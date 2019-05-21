@@ -22,7 +22,7 @@ set $right l
 set $term /usr/bin/termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu dmenu_path | bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12" | xargs swaymsg exec
 
 ### Output configuration
 #
@@ -56,8 +56,8 @@ output DP-1 pos 1969 0 res 2560x1440
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' \
+          timeout 600 'swaylock -f -c 000000' \
+          timeout 300 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
           before-sleep 'swaylock -f -c 000000'
 
