@@ -93,11 +93,11 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
 
 #:::::i3_ gaps::::::::::::::                                                                              
-	set $default_gaps_inner 4 
-	set $default_gaps_outer 1
-	gaps inner $default_gaps_inner
-	gaps outer $default_gaps_outer
-	smart_gaps on
+#	set $default_gaps_inner 4 
+#	set $default_gaps_outer 1
+#	gaps inner $default_gaps_inner
+#	gaps outer $default_gaps_outer
+#	smart_gaps on
 
 #	bindsym $mod+Shift+s sticky toggle
 
@@ -296,3 +296,8 @@ bindsym $mod+Shift+Ctrl+Down move workspace to output down
 #kill windows with middle-mouse
 bindsym --release button2 kill
 
+
+# pacman -S pamixer light swaylock swayidle pass termite
+# clipman: https://github.com/yory8/clipman
+# redshift: https://aur.archlinux.org/packages/redshift-wayland-git/
+#
