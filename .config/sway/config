@@ -87,8 +87,8 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
 
  #:::::::::disable_window_borders::::::::                                                                  
-	 for_window [class="^.*"] border pixel 4
-	 new_window pixel 4
+	 default_border pixel 4
+#	 new_window pixel 4
 #	 new_float  normal   
 
 
