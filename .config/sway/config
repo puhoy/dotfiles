@@ -296,6 +296,7 @@ bindsym $mod+Shift+Ctrl+Down move workspace to output down
 #kill windows with middle-mouse
 bindsym --release button2 kill
 
+bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 # pacman -S pamixer light swaylock swayidle pass termite
 # clipman: https://github.com/yory8/clipman
