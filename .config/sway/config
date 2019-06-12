@@ -270,6 +270,7 @@ exec blueman-applet &
 exec xfce4-powermanager &
 exec clipman -d &
 exec redshift-gtk -t 5700:4000 -l 53.5:9.9 -m wayland &
+exec mako --default-timeout 5
 
 # clipboard
 bindsym $mod+c exec clipman -s
@@ -298,7 +299,7 @@ bindsym --release button2 kill
 
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
-# pacman -S pamixer light swaylock swayidle pass termite
+# pacman -S pamixer light swaylock swayidle pass termite grim slurp mako
 # clipman: https://github.com/yory8/clipman
 # redshift: https://aur.archlinux.org/packages/redshift-wayland-git/
 #
