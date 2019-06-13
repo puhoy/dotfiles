@@ -87,9 +87,10 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 
 
  #:::::::::disable_window_borders::::::::                                                                  
-	 default_border pixel 4
-#	 new_window pixel 4
-#	 new_float  normal   
+default_border pixel 3
+
+# border color
+client.focused #4c7899  #285577  #ffffff  #2e9ef4  #cccccc
 
 
 #:::::i3_ gaps::::::::::::::                                                                              
@@ -270,7 +271,7 @@ exec blueman-applet &
 exec xfce4-powermanager &
 exec clipman -d &
 exec redshift-gtk -t 5700:4000 -l 53.5:9.9 -m wayland &
-exec mako --default-timeout 5
+exec mako --default-timeout 5000
 
 # clipboard
 bindsym $mod+c exec clipman -s
