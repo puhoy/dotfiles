@@ -22,7 +22,10 @@ set $right l
 set $term /usr/bin/termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu dmenu_path | bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12" | xargs swaymsg exec
+
+set $bemenu_options -i --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12"
+set $menu_command bemenu $bemenu_options
+set $menu dmenu_path | $menu_command | xargs swaymsg exec
 
 ### Output configuration
 #
@@ -37,29 +40,19 @@ output * bg #000000 solid_color
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+# clamshell
+#set $laptop eDP-1
+#bindswitch lid:on output $laptop disable
+#bindswitch lid:off output $laptop enable
+
+# laptop
 output eDP-1 scale 1.3
 output eDP-1 pos 0 0 res 2560x1440
-output DP-1 pos 1969 0 res 2560x1440
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-exec swayidle -w \
-          timeout 600 'swaylock -f -c 000000' \
-          timeout 300 'swaymsg "output * dpms off"' \
-               resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
+# external
+set $ext1 'Goldstar Company Ltd LG Ultra HD 0x00004E00'
+output $ext1 scale 1.3
+output $ext1 pos 1969 0 res 3840x2160
 
 seat * hide_cursor 8000
 
@@ -264,14 +257,24 @@ bar {
 
 include /etc/sway/config.d/*
 
-bindsym $mod+p exec passmenu | wl-copy
+###### autostart
+
+exec swayidle -w \
+          timeout 600 'swaylock -f -c 000000' \
+          timeout 300 'swaymsg "output * dpms off"' \
+               resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
 
 exec nm-applet --indicator -d &
 exec blueman-applet &
 exec xfce4-powermanager &
-exec clipman -d &
+exec clipman -d 1>> /home/meatpuppet/clipman.log 2>&1 &
 exec redshift-gtk -t 5700:4000 -l 53.5:9.9 -m wayland &
-exec mako --default-timeout 5000
+exec mako --default-timeout 5000 &
+
+###### keybindings
+
+bindsym $mod+p exec bepassmenu $bemenu_options
 
 # clipboard
 bindsym $mod+c exec clipman -s
@@ -295,12 +298,15 @@ bindsym $mod+Shift+Ctrl+Right move workspace to output right
 
 bindsym $mod+Shift+Ctrl+Up move workspace to output up
 bindsym $mod+Shift+Ctrl+Down move workspace to output down
+
 #kill windows with middle-mouse
 bindsym --release button2 kill
 
+# screenshot
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 # pacman -S pamixer light swaylock swayidle pass termite grim slurp mako
 # clipman: https://github.com/yory8/clipman
 # redshift: https://aur.archlinux.org/packages/redshift-wayland-git/
+# bepassmenu: https://github.com/puhoy/bepassmenu
 #
