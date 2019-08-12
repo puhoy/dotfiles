@@ -47,13 +47,22 @@ output * bg #000000 solid_color
 
 # laptop
 output eDP-1 scale 1.6
-output eDP-1 pos 0 1080 res 2560x1440
+output eDP-1 pos 0 1200 res 2560x1440
 
 # external
 set $ext1 'Goldstar Company Ltd LG Ultra HD 0x00004E00'
 output $ext1 scale 2
 #output $ext1 pos 1969 0 res 3840x2160
 output $ext1 pos 0 0 res 3840x2160
+
+
+set $ext_work 'Dell Inc. DELL U2515H 9X2VY61713FL'
+output $ext_work scale 1.2
+output $ext_work pos 0 0 res 2560x1440
+
+set $ext_meetingroom 'Goldstar Company Ltd LG TV 0x00000101'
+output $ext_meetingroom scale 2
+output $ext_meetingroom pos 0 0 res 4096x2160
 
 seat * hide_cursor 8000
 
