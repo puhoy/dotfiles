@@ -93,8 +93,12 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
 default_border pixel 3
 
 # border color
-client.focused #4c7899  #285577  #ffffff  #2e9ef4  #cccccc
-
+client.focused		#4c7899  #285577  #ffffff  #2e9ef4  #cccccc
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
 
 #:::::i3_ gaps::::::::::::::                                                                              
 #	set $default_gaps_inner 4 
@@ -316,7 +320,7 @@ bindsym --release button2 kill
 # screenshot
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
-# pacman -S pamixer light swaylock swayidle pass termite grim slurp mako
+# pacman -S pamixer light swaylock swayidle pass termite grim slurp mako wl-clipboard
 # clipman: https://github.com/yory8/clipman
 # redshift: https://aur.archlinux.org/packages/redshift-wayland-git/
 # bepassmenu: https://github.com/puhoy/bepassmenu
