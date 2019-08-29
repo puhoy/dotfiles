@@ -285,7 +285,9 @@ exec xfce4-powermanager &
 exec clipman -d 1>> /home/meatpuppet/clipman.log 2>&1 &
 exec redshift-gtk -t 5700:4000 -l 53.5:9.9 -m wayland &
 exec mako --default-timeout 5000 &
-exec syncthing &
+exec syncthing -no-browser &
+exec kanshi &
+
 
 ###### keybindings
 
@@ -324,4 +326,5 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 # clipman: https://github.com/yory8/clipman
 # redshift: https://aur.archlinux.org/packages/redshift-wayland-git/
 # bepassmenu: https://github.com/puhoy/bepassmenu
-#
+# kanshi: https://aur.archlinux.org/packages/kanshi-git/
+
