@@ -2,19 +2,26 @@
 	output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
 }
 {
-        output eDP-1 enable scale 1.6 mode 2560x1440 position 0,1080
-	output "Goldstar Company Ltd LG Ultra HD 0x00004E00" enable scale 2 mode 3840x2160 position 0,0
+        output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
+	output "Goldstar Company Ltd LG Ultra HD 0x00004E00" enable scale 2 mode 3840x2160 position 1600,0
 }
 {
 	output "Goldstar Company Ltd LG Ultra HD 0x00004E00" enable scale 2 mode 3840x2160 position 0,0
 }
 {
-	output eDP-1 enable scale 1.6 mode 2560x1440 position 0,1090
-        output "Dell Inc. DELL U2515H 9X2VY61713FL" enable scale 2 mode 3840x2160 position 0,0
+	output eDP-1 enable scale 2 mode 2560x1440 position 0,0
+        output "Dell Inc. DELL U2515H 9X2VY61713FL" enable scale 1.3 mode 2560x1440 position 1280,0
 }
 
 {
         output eDP-1 enable scale 1.6 mode 2560x1440 position 0,1090
         output "Goldstar Company Ltd LG TV 0x00000101" enable scale 2 mode 4096x2160 position 0,0
 }
+{
+        output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
+        output "Goldstar Company Ltd LG ULTRAWIDE 0x00006FD1" enable mode 3440x1440 position 1600,0
+}
+
+
+
 
