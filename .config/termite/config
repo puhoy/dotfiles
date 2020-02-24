@@ -1,7 +1,7 @@
 [options]
-font = Monospace 12
+#font = Monospace 10
 scrollback_lines = -1
-
+font = FiraCode 10
 
 [colors]
 # Base16 Dracula
@@ -52,7 +52,6 @@ color18 = #3a3c4e
 color19 = #626483
 color20 = #62d6e8
 color21 = #f1f2f8
-=======
 scroll_on_output = false
 scroll_on_keystroke = true
 audible_bell = false
