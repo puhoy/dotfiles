@@ -64,7 +64,7 @@ set $ext_meetingroom 'Goldstar Company Ltd LG TV 0x00000101'
 output $ext_meetingroom scale 2
 output $ext_meetingroom pos 0 0 res 4096x2160
 
-seat * hide_cursor 8000
+seat * hide_cursor 60000
 
 ### Input configuration
 #
