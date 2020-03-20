@@ -8,6 +8,7 @@ call plug#begin()
 Plug 'plasticboy/vim-markdown'
 call plug#end()
 
+
 " Turn on syntax highlighting
 syntax on
 
