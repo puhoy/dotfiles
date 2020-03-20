@@ -37,9 +37,11 @@ set wrap linebreak " wrap lines at end of window; dont break in words
 set showbreak=⤿  " icon for wrapped lines
 match ErrorMsg '\%>80v.\+' " highlight after cat 80
 set mouse=a  " dont select line numbers when using mouse
-
-
 set textwidth=79
+
+set splitbelow  " split right and bottom
+set splitright
+
 set formatoptions=tcqrn1
 set tabstop=2
 set shiftwidth=2
