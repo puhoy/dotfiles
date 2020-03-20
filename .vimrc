@@ -33,7 +33,12 @@ set visualbell
 set encoding=utf-8
 
 " Whitespace
-set wrap linebreak nolist
+set wrap linebreak " wrap lines at end of window; dont break in words
+set showbreak=⤿  " icon for wrapped lines
+match ErrorMsg '\%>80v.\+' " highlight after cat 80
+set mouse=a  " dont select line numbers when using mouse
+
+
 set textwidth=79
 set formatoptions=tcqrn1
 set tabstop=2
@@ -86,9 +91,9 @@ vnoremap <F1> :set invfullscreen<CR>
 map <leader>q gqip
 
 " Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ ,eol:¬
 " Uncomment this to enable by default:
-set list " To enable by default
+" set list " To enable by default
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
