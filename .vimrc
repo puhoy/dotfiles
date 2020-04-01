@@ -5,9 +5,17 @@ set nocompatible
 filetype off
 
 call plug#begin()
-Plug 'plasticboy/vim-markdown'
+" Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-vinegar'  " nicer netrw
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fcpg/vim-waikiki'
 call plug#end()
 
+" waikiki config
+let g:waikiki_roots = ['~/notes/']
+let maplocalleader = "\<F7>"
+let g:waikiki_default_maps = 1
+let g:waikiki_done = "X"
 
 " Turn on syntax highlighting
 syntax on
@@ -38,7 +46,7 @@ set wrap linebreak " wrap lines at end of window; dont break in words
 set showbreak=⤿  " icon for wrapped lines
 match ErrorMsg '\%>80v.\+' " highlight after cat 80
 set mouse=a  " dont select line numbers when using mouse
-set textwidth=79
+"set textwidth=79
 
 set splitbelow  " split right and bottom
 set splitright
