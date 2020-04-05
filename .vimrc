@@ -9,13 +9,33 @@ call plug#begin()
 Plug 'tpope/vim-vinegar'  " nicer netrw
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'fcpg/vim-waikiki'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify' " like gitgutter, but more vcs
+"Plug 'Valloric/YouCompleteMe'
+Plug 'ajh17/VimCompletesMe'
+Plug 'morhetz/gruvbox' " colorscheme
 call plug#end()
+
 
 " waikiki config
 let g:waikiki_roots = ['~/notes/']
 let maplocalleader = "\<F7>"
 let g:waikiki_default_maps = 1
 let g:waikiki_done = "X"
+
+"NerdTree config
+"" open automatically when opening a directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+"" toggle on ctrl-n
+map <C-n> :NERDTreeToggle<CR>
+
+"" show hidden files
+let NERDTreeShowHidden=1
+
 
 " Turn on syntax highlighting
 syntax on
@@ -52,9 +72,9 @@ set splitbelow  " split right and bottom
 set splitright
 
 set formatoptions=tcqrn1
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+  set shiftwidth=4
+set softtabstop=4
 set expandtab
 set noshiftround
 
@@ -109,11 +129,12 @@ map <leader>q gqip
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+"set t_Co=256
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
-"
+colorscheme gruvbox
+set background=dark "dark theme
+
