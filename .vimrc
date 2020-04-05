@@ -37,6 +37,13 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 
+" vim-signify statusline
+function! MyStatusline()
+  return ' %f '. sy#repo#get_stats_decorated()
+endfunction
+
+set statusline=%!MyStatusline()
+
 " Turn on syntax highlighting
 syntax on
 

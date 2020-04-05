@@ -5,11 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 
-#input * xkb_layout "de"
-
-input 'Lenovo ThinkPad Compact USB Keyboard with TrackPoint' {
-    xkb_layout us
-}
+input * xkb_layout us-german-umlaut
 
 
 ### Variables
