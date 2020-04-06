@@ -13,9 +13,12 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify' " like gitgutter, but more vcs
+Plug 'tpope/vim-fugitive'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'ajh17/VimCompletesMe'
 Plug 'morhetz/gruvbox' " colorscheme
+" syntax highlighting
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
@@ -36,13 +39,22 @@ map <C-n> :NERDTreeToggle<CR>
 "" show hidden files
 let NERDTreeShowHidden=1
 
-
-" vim-signify statusline
-function! MyStatusline()
-  return ' %f '. sy#repo#get_stats_decorated()
-endfunction
-
-set statusline=%!MyStatusline()
+" show signify git changes
+set statusline=%{sy#repo#get_stats_decorated()}
+" show branch in status line
+set statusline+=%{FugitiveStatusline()}
+set statusline+=%#PmenuSel#
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
 
 " Turn on syntax highlighting
 syntax on
