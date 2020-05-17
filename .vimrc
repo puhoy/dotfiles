@@ -19,6 +19,7 @@ Plug 'ajh17/VimCompletesMe'
 Plug 'morhetz/gruvbox' " colorscheme
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
+Plug 'Chiel92/vim-autoformat'
 call plug#end()
 
 
