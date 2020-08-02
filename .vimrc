@@ -15,13 +15,60 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-signify' " like gitgutter, but more vcs
 Plug 'tpope/vim-fugitive'
 "Plug 'Valloric/YouCompleteMe'
-Plug 'ajh17/VimCompletesMe'
+"Plug 'ajh17/VimCompletesMe'
 Plug 'morhetz/gruvbox' " colorscheme
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
 Plug 'Chiel92/vim-autoformat'
+
+" autocomplete
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+
+" visualize undos
+Plug 'mbbill/undotree'
+
+
+" display buffers as 'tabs'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" automatic generate ctags (needs ctags installed)
+Plug 'ludovicchabant/vim-gutentags'
+
+" autoformat files
+Plug 'Chiel92/vim-autoformat'
+
+
 call plug#end()
 
+" toggle file history
+nnoremap <F5> :UndotreeToggle<cr>
+
+" remove unused imports 
+"" python (needs autoflake)
+autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-variables %<CR>
+
+" autoformatting
+noremap <C-A-l> :Autoformat<CR>
+
+" show buffers
+" https://github.com/vim-airline/vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
+" use system python, not venv
+let g:python3_host_prog = '/usr/bin/python3'
 
 " waikiki config
 let g:waikiki_roots = ['~/notes/']
@@ -39,6 +86,17 @@ map <C-n> :NERDTreeToggle<CR>
 
 "" show hidden files
 let NERDTreeShowHidden=1
+
+"" ignore files
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+
+
+"" keep file history
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
 
 " show signify git changes
 set statusline=%{sy#repo#get_stats_decorated()}
