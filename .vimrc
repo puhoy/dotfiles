@@ -5,20 +5,22 @@ set nocompatible
 filetype off
 
 call plug#begin()
-" Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-vinegar'  " nicer netrw
+"Plug 'tpope/vim-vinegar'  " nicer netrw
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" wiki
 Plug 'fcpg/vim-waikiki'
+" file tree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'airblade/vim-gitgutter'
-Plug 'mhinz/vim-signify' " like gitgutter, but more vcs
-Plug 'tpope/vim-fugitive'
-"Plug 'Valloric/YouCompleteMe'
-"Plug 'ajh17/VimCompletesMe'
-Plug 'morhetz/gruvbox' " colorscheme
+
+" show git changes
+Plug 'mhinz/vim-signify' 
+" git commands in vim
+Plug 'tpope/vim-fugitive' 
+
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
+" autoformat files
 Plug 'Chiel92/vim-autoformat'
 
 " autocomplete
@@ -44,9 +46,8 @@ Plug 'vim-airline/vim-airline-themes'
 " automatic generate ctags (needs ctags installed)
 Plug 'ludovicchabant/vim-gutentags'
 
-" autoformat files
-Plug 'Chiel92/vim-autoformat'
-
+" colorscheme
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -59,6 +60,11 @@ autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-v
 
 " autoformatting
 noremap <C-A-l> :Autoformat<CR>
+
+
+" autosave
+map <Esc><Esc> :update<CR>
+
 
 " show buffers
 " https://github.com/vim-airline/vim-airline
