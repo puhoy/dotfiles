@@ -35,6 +35,10 @@ let g:deoplete#enable_at_startup = 1
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
+" jump to definition
+Plug 'davidhalter/jedi-vim'
+
+
 " visualize undos
 Plug 'mbbill/undotree'
 
@@ -64,6 +68,10 @@ noremap <C-A-l> :Autoformat<CR>
 
 " autosave
 map <Esc><Esc> :update<CR>
+
+
+" we use deoplete for completion
+let g:jedi#completions_enabled = 0
 
 
 " show buffers
