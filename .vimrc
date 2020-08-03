@@ -65,12 +65,10 @@ autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-v
 " autoformatting
 noremap <C-A-l> :Autoformat<CR>
 
-
 " autosave
-map <Esc><Esc> :update<CR>
+:au FocusLost * silent! wa
 
-
-" we use deoplete for completion
+" we use deoplete for completion - disable jedi
 let g:jedi#completions_enabled = 0
 
 
@@ -102,32 +100,13 @@ map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 "" ignore files
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', 'tags']
 
 "" keep file history
 set undodir=~/.vim/undodir
 set undofile
 set undolevels=1000
 set undoreload=10000
-
-
-" show signify git changes
-set statusline=%{sy#repo#get_stats_decorated()}
-" show branch in status line
-set statusline+=%{FugitiveStatusline()}
-set statusline+=%#PmenuSel#
-set statusline+=%#LineNr#
-set statusline+=\ %f
-set statusline+=%m\
-set statusline+=%=
-set statusline+=%#CursorColumn#
-set statusline+=\ %y
-set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
-set statusline+=\[%{&fileformat}\]
-set statusline+=\ %p%%
-set statusline+=\ %l:%c
-set statusline+=\ 
 
 " Turn on syntax highlighting
 syntax on
@@ -165,7 +144,7 @@ set splitright
 
 set formatoptions=tcqrn1
 set tabstop=4
-  set shiftwidth=4
+set shiftwidth=4
 set softtabstop=4
 set expandtab
 set noshiftround
