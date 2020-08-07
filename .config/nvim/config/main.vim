@@ -13,6 +13,9 @@ autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-v
 " use system python, not venv
 let g:python3_host_prog = '/usr/bin/python3'
 
+" use system clipboard
+set clipboard=unnamed,unnamedplus
+
 " Color scheme (terminal)
 "set t_Co=256
 "let g:solarized_termcolors=256
