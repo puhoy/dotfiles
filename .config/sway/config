@@ -260,7 +260,7 @@ exec swayidle -w \
 exec nm-applet --indicator -d &
 exec blueman-applet &
 exec xfce4-powermanager &
-exec clipman -d 1>> /home/meatpuppet/clipman.log 2>&1 &
+exec wl-paste -t text --watch clipman store
 exec redshift-gtk -t 5700:4000 -l 53.5:9.9 -m wayland &
 exec mako --default-timeout 5000 &
 exec syncthing -no-browser &
@@ -272,7 +272,7 @@ exec kanshi &
 bindsym $mod+p exec bepassmenu $bemenu_options
 
 # clipboard
-bindsym $mod+c exec clipman -s
+bindsym $mod+c exec clipman pick -t dmenu
 
 #lock
 bindsym $mod+Escape exec swaylock -f -c 000000

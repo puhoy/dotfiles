@@ -24,16 +24,31 @@ Plug 'sheerun/vim-polyglot'
 Plug 'Chiel92/vim-autoformat'
 
 " autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-Plug 'deoplete-plugins/deoplete-docker'
+"Plug 'deoplete-plugins/deoplete-jedi'
+"Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+"Plug 'deoplete-plugins/deoplete-docker'
+
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp' " ncm2 dependency
+Plug 'ncm2/ncm2-path'
+" python
+Plug 'ncm2/ncm2-jedi' 
+" javascript
+Plug 'ncm2/ncm2-tern'
+" typescript
+Plug 'mhartington/nvim-typescript'
+" css
+Plug 'ncm2/ncm2-cssomni'
+" go
+Plug 'ncm2/ncm2-go'
+" php
+Plug 'phpactor/ncm2-phpactor'
 
 
 " jump to definition
 Plug 'davidhalter/jedi-vim'
-
 
 " visualize undos
 Plug 'mbbill/undotree'
@@ -68,8 +83,19 @@ source ~/.config/nvim/config/signify.vim
 source ~/.config/nvim/config/syntastic.vim
 source ~/.config/nvim/config/undotree.vim
 source ~/.config/nvim/config/waikiki.vim
-
+source ~/.config/nvim/config/ncm2.vim
 
 source ~/.vimrc
 source ~/.config/nvim/config/main.vim
+
+
+"" dependencies
+" pip 
+" - flake
+"   jedi
+"   pynvim
+"   autoflake
+"   autopep8
+"   pylint
+
 

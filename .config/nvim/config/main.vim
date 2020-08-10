@@ -7,8 +7,8 @@ filetype off
 "" python (needs autoflake)
 autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-variables %<CR>
 
-" autosave
-:au FocusLost * :wa|:SyntasticCheck
+" autosave & syntaxcheck (silent hides errors for unnamed buffers)
+:au FocusLost * silent! :wa|:SyntasticCheck
 
 " use system python, not venv
 let g:python3_host_prog = '/usr/bin/python3'
