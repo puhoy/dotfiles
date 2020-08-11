@@ -66,13 +66,28 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " colorscheme
 Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+
+
+" Track the engine.
+Plug 'SirVer/ultisnips'
+
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
 call plug#end()
 
 
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 let g:deoplete#enable_at_startup = 1
 
@@ -100,6 +115,12 @@ source ~/.config/nvim/config/main.vim
 "   pynvim
 "   autoflake
 "   autopep8
+"   flake8
 "   pylint
+"   mypy  # test for type annotations 
+
+" xmllint  # autoformat xml
+"
+
 
 

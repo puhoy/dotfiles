@@ -27,5 +27,9 @@ set inccommand=nosplit
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
-colorscheme gruvbox
-set background=dark "dark theme
+"colorscheme gruvbox
+"set background=dark "dark theme
+"set background=light "light theme
+
+set background=light
+colorscheme PaperColor

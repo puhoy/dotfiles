@@ -272,12 +272,12 @@ exec kanshi &
 bindsym $mod+p exec bepassmenu $bemenu_options
 
 # clipboard
-bindsym $mod+c exec clipman pick -t dmenu
+bindsym $mod+c exec clipman pick --tool=bemenu -T'$bemenu_options'
 
 #lock
 bindsym $mod+Escape exec swaylock -f -c 000000
 
-# Pulse Audio controls
+# Pulse Audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer --increase 5 #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pamixer --decrease 5 #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
