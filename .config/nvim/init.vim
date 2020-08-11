@@ -6,9 +6,12 @@ call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " wiki
 Plug 'fcpg/vim-waikiki'
+
+
 " file tree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'lambdalisue/fern.vim'
 
 " syntax highlights
 Plug 'vim-syntastic/syntastic'
@@ -79,6 +82,7 @@ source ~/.config/nvim/config/autoformat.vim
 source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/jedi.vim
 source ~/.config/nvim/config/nerdtree.vim
+"source ~/.config/nvim/config/fern.vim
 source ~/.config/nvim/config/signify.vim
 source ~/.config/nvim/config/syntastic.vim
 source ~/.config/nvim/config/undotree.vim

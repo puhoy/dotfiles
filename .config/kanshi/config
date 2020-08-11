@@ -30,13 +30,23 @@
 
 {
     output eDP-1 disable
-    output "Goldstar Company Ltd LG Ultra HD 0x00004E00" enable scale 2 mode 3840x2160 position 0,0
-    output "Dell Inc. DELL U2414H 9TG464BO69AL" enable scale 1 mode 1920x1080 position 1920,0 transform 270
+    output "Goldstar Company Ltd LG Ultra HD 0x00004E00" enable scale 2 mode 3840x2160 position 1600,0
+    output "Dell Inc. DELL U2414H 9TG464BO69AL" enable scale 1 mode 1920x1080 position 3520,0 transform 90
 }
 
 {
     output eDP-1  enable scale 1.6 mode 2560x1440 position 0,0
     output "Dell Inc. DELL U2414H 9TG464BO69AL" enable scale 1 mode 1920x1080 position 1600,0 transform 270
+}
+
+{
+    output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
+    output "Goldstar Company Ltd LG Ultra HD 0x00004E84" enable scale 2 mode 3840x2160 position 1600,0
+}
+
+{
+    output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
+    output "Goldstar Company Ltd LG Ultra HD 0x00004F29" enable scale 2 mode 3840x2160 position 1600,0
 }
 
 
