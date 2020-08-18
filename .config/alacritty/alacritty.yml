@@ -89,15 +89,16 @@ env:
 
 # Font configuration
 font:
+  family: Fira Code Mono
   # Normal (roman) font face
-  normal:
+  #normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Fira Code Mono
+    #  family: Fira Code Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -110,7 +111,7 @@ font:
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: DejaVu Sans Mono
+    #family: DejaVu Sans Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
@@ -122,7 +123,7 @@ font:
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: DejaVu Sans Mono
+    #family: DejaVu Sans Mono
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
@@ -133,7 +134,7 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: DejaVu Sans Mono
+    #family: DejaVu Sans Mono
     #family: monospace
 
     # The `style` can be specified to pick a specific face.

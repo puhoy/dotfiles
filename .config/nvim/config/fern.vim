@@ -1,20 +1,22 @@
 
-"" open automatically when opening a directory
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'Fern . -drawer -width=30' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
-
+let g:fern#renderer = "nerdfont"
 
 " toggle on ctrl-n
-map <C-n> :NERDTreeToggle<CR>
+map <C-n> :Fern . -drawer -toggle<CR>
+
+
+" reload tree on R
+function s:init_fern_mapping_reload_all()
+    nmap <buffer> R <Plug>(fern-action-reload:all)
+endfunction
+augroup my-fern-mapping-reload-all
+    autocmd! *
+    autocmd FileType fern call s:init_fern_mapping_reload_all()
+augroup END
+
 
 "" show hidden files
-let NERDTreeShowHidden=1
-
-" dont show help notification
-let NERDTreeMinimalUI = 1
 
 "" ignore files
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', 'tags']
 
 
