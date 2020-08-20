@@ -17,6 +17,6 @@ let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 
 "" ignore files
-let NERDTreeIgnore = ['\.pyc$', '__pycache__', 'tags']
+let NERDTreeIgnore = ['\.pyc$', '__pycache__', '^tags$']
 
 
