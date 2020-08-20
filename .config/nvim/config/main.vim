@@ -5,7 +5,7 @@ set nocompatible
 filetype off
 " remove unused imports
 "" python (needs autoflake)
-autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-variables %<CR>
+autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-variables --expand-star-imports --remove-all-unused-imports %<CR>
 
 " autosave & syntaxcheck (silent hides errors for unnamed buffers)
 :au FocusLost * silent! :wa "|:SyntasticCheck

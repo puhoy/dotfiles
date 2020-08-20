@@ -306,3 +306,8 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 # bepassmenu: https://github.com/puhoy/bepassmenu
 # kanshi: https://aur.archlinux.org/packages/kanshi-git/
 
+# light needs user in video group
+# gpasswd -a <user> video
+# 
+
+

@@ -7,6 +7,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 " toggle on ctrl-n
 map <C-n> :NERDTreeToggle<CR>
+" show current file in nerdtree, jump back to current window
+nmap <C-m> :NERDTreeFind<CR><C-w><C-p> 
 
 "" show hidden files
 let NERDTreeShowHidden=1
