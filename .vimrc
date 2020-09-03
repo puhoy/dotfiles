@@ -97,5 +97,8 @@ map <leader>q gqip
 " Or use your leader key + l to toggle on/off
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
+" fix ^M when copy pasting
+set t_BE=
+
 
 

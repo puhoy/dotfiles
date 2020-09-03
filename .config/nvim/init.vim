@@ -88,6 +88,9 @@ Plug 'tpope/vim-repeat'
 " Snippets are separated from the engine. Add this if you want them:
 "Plug 'honza/vim-snippets'
 
+" multiple cursors
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
 call plug#end()
 
 
@@ -98,6 +101,8 @@ call plug#end()
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
 
+let g:VM_mouse_mappings = 1
+nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/autoformat.vim

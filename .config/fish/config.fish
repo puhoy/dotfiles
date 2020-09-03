@@ -12,5 +12,5 @@ if status --is-interactive;
     [ -e $HOME/.keychain/$HOSTNAME-fish ]; and source $HOME/.keychain/$HOSTNAME-fish
 end
 
-set -gx PATH /home/meatpuppet/go/bin $PATH
+contains $HOME/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/bin
 
