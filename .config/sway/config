@@ -24,7 +24,7 @@ set $term /usr/bin/alacritty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
-set $bemenu_options -i -m all --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12"
+set $bemenu_options -i -m all --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12" --list 25
 set $menu_command bemenu $bemenu_options
 set $menu dmenu_path | $menu_command | xargs swaymsg exec
 

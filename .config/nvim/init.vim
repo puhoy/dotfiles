@@ -19,6 +19,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'LumaKernel/fern-mapping-reload-all.vim'
 "Plug 'lambdalisue/nerdfont.vim'
 
+Plug 'tpope/vim-vinegar'
+
 " syntax highlighting, linting
 Plug 'dense-analysis/ale'
 
