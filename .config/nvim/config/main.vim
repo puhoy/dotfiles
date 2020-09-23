@@ -8,7 +8,11 @@ filetype off
 autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-variables --expand-star-imports --remove-all-unused-imports %<CR>
 
 " autosave & syntaxcheck (silent hides errors for unnamed buffers)
-:au FocusLost * silent! :wa "|:SyntasticCheck
+au FocusLost * silent! :wa "|:SyntasticCheck
+
+" check for file changes that happened outside of vim
+au CursorHold,CursorHoldI * checktime
+
 
 " use system python, not venv
 let g:python3_host_prog = '/usr/bin/python3'

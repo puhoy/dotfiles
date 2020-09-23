@@ -32,8 +32,8 @@ set $menu dmenu_path | $menu_command | xargs swaymsg exec
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg #000000 solid_color
-#output * bg ~/∞/1515163594001.jpg center #0f0f0f
+#output * bg #000000 solid_color
+output * bg ~/∞/1515163594001.jpg center #0f0f0f
 #
 # Example configuration:
 #
@@ -265,6 +265,7 @@ exec redshift-gtk -t 5700:4000 -l 53.5:9.9 -m wayland &
 exec mako --default-timeout 5000 &
 exec syncthing -no-browser &
 exec kanshi &
+exec ~/.config/sway/random_wallpaper.sh &
 
 
 ###### keybindings

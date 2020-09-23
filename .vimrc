@@ -14,6 +14,8 @@ filetype plugin indent on
 " TODO: Pick a leader key
 " let mapleader = ","
 
+" update on changes outside of vim
+set autoread
 " Security
 set modelines=0
 
@@ -99,6 +101,4 @@ map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " fix ^M when copy pasting
 set t_BE=
-
-
 
