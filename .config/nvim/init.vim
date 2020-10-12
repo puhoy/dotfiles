@@ -7,7 +7,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " wiki
 Plug 'fcpg/vim-waikiki'
+"Plug 'vimwiki/vimwiki'
 
+"call plug#('~/.vim/plugged/viki', {})
 Plug 'mhinz/vim-startify'
 
 " file tree
@@ -58,6 +60,8 @@ Plug 'ncm2/ncm2-cssomni'
 Plug 'ncm2/ncm2-go'
 " php
 Plug 'phpactor/ncm2-phpactor'
+" stuff from current buffer
+Plug 'ncm2/ncm2-bufword'
 
 " jump to definition
 Plug 'davidhalter/jedi-vim'
@@ -105,6 +109,11 @@ call plug#end()
 
 let g:VM_mouse_mappings = 1
 nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
+
+
+"let g:vimwiki_list = [{'path': '~/notes/',
+"                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/autoformat.vim
