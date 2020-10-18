@@ -6,7 +6,7 @@ call plug#begin()
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " wiki
-Plug 'fcpg/vim-waikiki'
+"Plug 'fcpg/vim-waikiki'
 "Plug 'vimwiki/vimwiki'
 
 "call plug#('~/.vim/plugged/viki', {})
@@ -110,11 +110,6 @@ call plug#end()
 let g:VM_mouse_mappings = 1
 nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
-
-"let g:vimwiki_list = [{'path': '~/notes/',
-"                      \ 'syntax': 'markdown', 'ext': '.md'}]
-
-
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/autoformat.vim
 source ~/.config/nvim/config/fzf.vim
@@ -124,7 +119,9 @@ source ~/.config/nvim/config/nerdtree.vim
 source ~/.config/nvim/config/signify.vim
 "source ~/.config/nvim/config/syntastic.vim
 source ~/.config/nvim/config/undotree.vim
-source ~/.config/nvim/config/waikiki.vim
+"source ~/.config/nvim/config/waikiki.vim
+"source ~/.config/nvim/config/vimwiki.vim
+source ~/.config/nvim/config/wiki.vim
 source ~/.config/nvim/config/ncm2.vim
 source ~/.config/nvim/config/startify.vim
 source ~/.config/nvim/config/ale.vim
@@ -134,6 +131,9 @@ source ~/.config/nvim/config/gutentags.vim
 source ~/.vimrc
 source ~/.config/nvim/config/main.vim
 
+
+" open nonexistent file under cursor
+map <leader>gf :e <cfile><cr>
 
 
 "" dependencies
