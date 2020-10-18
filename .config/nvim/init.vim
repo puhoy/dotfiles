@@ -135,6 +135,12 @@ source ~/.config/nvim/config/main.vim
 " open nonexistent file under cursor
 map <leader>gf :e <cfile><cr>
 
+" move through visual wrapped lines instead of "real lines"
+noremap <silent> <UP> gk
+noremap <silent> <DOWN> gj
+noremap <silent> 0 g0
+noremap <silent> $ g$
+
 
 "" dependencies
 " pip 
