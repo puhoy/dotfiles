@@ -51,9 +51,10 @@ Plug 'ncm2/ncm2-path'
 " python
 Plug 'ncm2/ncm2-jedi' 
 " javascript
-Plug 'ncm2/ncm2-tern'
+Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
 " typescript
-"Plug 'mhartington/nvim-typescript'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 " css
 Plug 'ncm2/ncm2-cssomni'
 " go
@@ -140,6 +141,9 @@ noremap <silent> <UP> gk
 noremap <silent> <DOWN> gj
 noremap <silent> 0 g0
 noremap <silent> $ g$
+
+" append random alphanumeric string to current line
+command! -nargs=1 Random :call setline(line('.'), getline(line('.')) .  system("strings -n 1 < /dev/urandom |  tr -dc 'a-zA-Z0-9' | fold -w " . <f-args> . " |  head -n 1 | tr -d '\n'"))
 
 
 "" dependencies
