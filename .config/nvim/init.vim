@@ -98,6 +98,13 @@ Plug 'tpope/vim-repeat'
 " multiple cursors
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
+" markdown rendering (conceal links etc..)
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+
+Plug 'junegunn/limelight.vim'
+
 call plug#end()
 
 
@@ -127,6 +134,7 @@ source ~/.config/nvim/config/ncm2.vim
 source ~/.config/nvim/config/startify.vim
 source ~/.config/nvim/config/ale.vim
 source ~/.config/nvim/config/gutentags.vim
+source ~/.config/nvim/config/markdown.vim
 
 
 source ~/.vimrc
@@ -144,6 +152,7 @@ noremap <silent> $ g$
 
 " append random alphanumeric string to current line
 command! -nargs=1 Random :call setline(line('.'), getline(line('.')) .  system("strings -n 1 < /dev/urandom |  tr -dc 'a-zA-Z0-9' | fold -w " . <f-args> . " |  head -n 1 | tr -d '\n'"))
+
 
 
 "" dependencies

@@ -89,7 +89,7 @@ env:
 
 # Font configuration
 font:
-  family: Fira Code Mono
+  family: DejaVu Sans Mono
   # Normal (roman) font face
   #normal:
     # Font family
