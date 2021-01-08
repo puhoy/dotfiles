@@ -1,7 +1,7 @@
 
 let g:wiki_base = '/home/meatpuppet/notes/'
 " use a file per month
-let g:wiki_journal_file_pattern = '%Y_%m'
+let g:wiki_journal_file_pattern = '%Y/%m'
 
 
 command! WikiAutoCommit :wa | 

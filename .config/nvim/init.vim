@@ -2,15 +2,7 @@
 "let &packpath = &runtimepath
 
 call plug#begin()
-"Plug 'tpope/vim-vinegar'  " nicer netrw
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-" wiki
-"Plug 'fcpg/vim-waikiki'
-"Plug 'vimwiki/vimwiki'
-
-"call plug#('~/.vim/plugged/viki', {})
-Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-vinegar'  " nicer netrw
 
 " file tree
 Plug 'preservim/nerdtree'
@@ -23,49 +15,24 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'tpope/vim-vinegar'
 
-" syntax highlighting, linting
+" ncm2 requirement
+Plug 'roxma/nvim-yarp' 
+Plug 'ncm2/ncm2'
+"python
+Plug 'ncm2/ncm2-jedi'
+" js, ts
+Plug 'ncm2/ncm2-tern'
+Plug 'ncm2/ncm2-vim'
+" have gotodefinition and jedi keybindings...
+Plug 'davidhalter/jedi-vim'
+
+" linting
 Plug 'dense-analysis/ale'
 
 " show git changes
 Plug 'mhinz/vim-signify'
 " git commands in vim
 Plug 'tpope/vim-fugitive'
-
-" syntax highlighting
-Plug 'sheerun/vim-polyglot'
-
-" autoformat files
-Plug 'Chiel92/vim-autoformat'
-
-" autocomplete
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-"Plug 'deoplete-plugins/deoplete-jedi'
-"Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-"Plug 'deoplete-plugins/deoplete-docker'
-
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp' " ncm2 dependency
-" paths
-Plug 'ncm2/ncm2-path'
-" python
-Plug 'ncm2/ncm2-jedi' 
-" javascript
-Plug 'ncm2/ncm2-tern', {'do': 'npm install'}
-" typescript
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-" css
-Plug 'ncm2/ncm2-cssomni'
-" go
-Plug 'ncm2/ncm2-go'
-" php
-Plug 'phpactor/ncm2-phpactor'
-" stuff from current buffer
-Plug 'ncm2/ncm2-bufword'
-
-" jump to definition
-Plug 'davidhalter/jedi-vim'
 
 " visualize undos
 Plug 'mbbill/undotree'
@@ -80,6 +47,8 @@ Plug 'ludovicchabant/vim-gutentags'
 " colorscheme
 Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'huytd/vim-espresso-tutti'
+
 
 " fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -87,26 +56,21 @@ Plug 'junegunn/fzf.vim'
 
 " add 'surroundings'
 Plug 'tpope/vim-surround'
-" . repeat for some plugins supporting it (vim-surround, tpope stuff)
-Plug 'tpope/vim-repeat'
-
-" snippets
-"Plug 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
-"Plug 'honza/vim-snippets'
-
-" multiple cursors
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " markdown rendering (conceal links etc..)
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+" distraction free writing
+Plug 'junegunn/goyo.vim'
 
-Plug 'junegunn/limelight.vim'
+Plug 'vim-python/python-syntax'
+
+"Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
+let g:python_highlight_all = 1
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 "let g:UltiSnipsExpandTrigger="<tab>"
@@ -119,23 +83,17 @@ let g:VM_mouse_mappings = 1
 nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
 source ~/.config/nvim/config/airline.vim
-source ~/.config/nvim/config/autoformat.vim
 source ~/.config/nvim/config/fzf.vim
-source ~/.config/nvim/config/jedi.vim
 source ~/.config/nvim/config/nerdtree.vim
-"source ~/.config/nvim/config/fern.vim
 source ~/.config/nvim/config/signify.vim
-"source ~/.config/nvim/config/syntastic.vim
 source ~/.config/nvim/config/undotree.vim
-"source ~/.config/nvim/config/waikiki.vim
-"source ~/.config/nvim/config/vimwiki.vim
 source ~/.config/nvim/config/wiki.vim
-source ~/.config/nvim/config/ncm2.vim
-source ~/.config/nvim/config/startify.vim
-source ~/.config/nvim/config/ale.vim
-source ~/.config/nvim/config/gutentags.vim
 source ~/.config/nvim/config/markdown.vim
+source ~/.config/nvim/config/ncm2.vim
+source ~/.config/nvim/config/jedi.vim
+source ~/.config/nvim/config/gutentags.vim
 
+"source ~/.config/nvim/config/coc.vim
 
 source ~/.vimrc
 source ~/.config/nvim/config/main.vim
@@ -144,7 +102,7 @@ source ~/.config/nvim/config/main.vim
 " open nonexistent file under cursor
 map <leader>gf :e <cfile><cr>
 
-" move through visual wrapped lines instead of "real lines"
+" move through visual wrapped lines instead of real lines
 noremap <silent> <UP> gk
 noremap <silent> <DOWN> gj
 noremap <silent> 0 g0
@@ -153,7 +111,12 @@ noremap <silent> $ g$
 " append random alphanumeric string to current line
 command! -nargs=1 Random :call setline(line('.'), getline(line('.')) .  system("strings -n 1 < /dev/urandom |  tr -dc 'a-zA-Z0-9' | fold -w " . <f-args> . " |  head -n 1 | tr -d '\n'"))
 
+" set working dir to current file
+"autocmd BufEnter * silent! lcd %:p:h
+let g:goyo_height= '100%'
 
+
+syntax on
 
 "" dependencies
 " pip 

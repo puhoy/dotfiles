@@ -274,6 +274,7 @@ bindsym $mod+p exec bepassmenu $bemenu_options
 
 # clipboard
 bindsym $mod+c exec clipman pick --tool=bemenu -T'$bemenu_options'
+bindsym $mod+x exec cat ~/notes/wiki/kaomojis.txt | bemenu --list=25 | wl-copy
 
 #lock
 bindsym $mod+Escape exec swaylock -f -c 000000
