@@ -2,7 +2,8 @@ feh --scale-down \
     --image-bg black \
     --sort name \
     --no-menus \
-    --magick-timeout -1 \
+    --auto-rotate \
+    --conversion-timeout -1 \
     --force-aliasing \
     --draw-filename \
     --title "[%u/%l] %n (%wx%h)"
@@ -12,4 +13,17 @@ thumbs --sort name \
        --thumbnails \
        --thumb-width 320 \
        --thumb-height 240 \
-       --limit-width 1700
+       --limit-width 1700 \
+        --auto-rotate \
+       --action "feh --theme feh %F"
+
+daily_import --sort name \
+       --image-bg black \
+       --thumbnails \
+       --thumb-width 320 \
+       --thumb-height 240 \
+       --limit-width 1700 \
+       --auto-rotate \
+       --sort mtime \
+       --action ";[import]cp %F ~/notes/images/`date +%%Y%%m%%d`_%N"
+
