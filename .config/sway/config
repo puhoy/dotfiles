@@ -261,7 +261,7 @@ exec nm-applet --indicator -d &
 exec blueman-applet &
 exec xfce4-powermanager &
 exec wl-paste -t text --watch clipman store
-exec redshift-gtk -t 5700:4000 -l 53.5:9.9 -m wayland &
+exec gammastep-indicator -t 5700:4000 -l 53.5:9.9 &
 exec mako --default-timeout 5000 &
 exec syncthing -no-browser &
 exec kanshi &
@@ -304,7 +304,6 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 # pacman -S pamixer light swaylock swayidle pass termite grim slurp mako wl-clipboard
 # clipman: https://github.com/yory8/clipman
-# redshift: https://aur.archlinux.org/packages/redshift-wayland-git/
 # bepassmenu: https://github.com/puhoy/bepassmenu
 # kanshi: https://aur.archlinux.org/packages/kanshi-git/
 
