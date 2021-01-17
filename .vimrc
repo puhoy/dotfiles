@@ -34,7 +34,7 @@ set encoding=utf-8
 
 " Whitespace
 set wrap linebreak " wrap lines at end of window; dont break in words
-set showbreak=⤿  " icon for wrapped lines
+set showbreak=-->  " icon for wrapped lines
 "match ErrorMsg '\%>80v.\+' " highlight after cat 80
 set mouse=a  " dont select line numbers when using mouse
 "set textwidth=79
