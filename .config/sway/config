@@ -5,8 +5,8 @@
 # Read `man 5 sway` for a complete reference.
 
 
-input * xkb_layout us-german-umlaut
-
+#input * xkb_layout us-german-umlaut
+input * xkb_layout de(neo_qwertz)
 
 ### Variables
 #
