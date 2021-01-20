@@ -8,7 +8,7 @@ feh --scale-down \
     --draw-filename \
     --sort mtime \
     --title "[%u/%l] %n (%wx%h)" \
-    --action1 ";[import]echo 'import %F' && cp %F ~/notes/images/`date +%%Y%%m%%d`_%N"
+    --action1 ";[import]echo 'import %F' && mkdir -p ~/notes/images/`date +%%Y/%%m` && cp %F ~/notes/images/`date +%%Y/%%m/%%d`_%N"
 
 thumbs --sort name \
        --image-bg black \

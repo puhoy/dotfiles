@@ -1,5 +1,5 @@
 
-let g:wiki_base = '~/notes/'
+let g:wiki_base = expand('~/notes/')
 " use a file per month
 let g:wiki_journal_file_pattern = '%Y/%m'
 let g:wiki_note_file_pattern = 'journal/notes/%Y/%m%d_' " argument will be appended
@@ -20,6 +20,8 @@ command! -bang -nargs=* WikiTags
 
 command! WikiDict execute ':!dict <cword>'
 
+command! WikiImage execute ':!feh %:p:h/<cfile>'
+
 function! wiki#slug(s) " {{{1
     " stolen from https://github.com/xolox/vim-misc/blob/3e6b8fb6f03f13434543ce1f5d24f6a5d3f34f0b/autoload/xolox/misc/str.vim
   " Convert a string to a "slug" - something that can be safely used in
@@ -37,7 +39,7 @@ command! -nargs=1 WikiNote execute ':edit ' . g:wiki_base . strftime(g:wiki_note
 " match on [(
 " complete on all notes-files relative to current file path
 function WikiRegisterCompletion()
-if expand('%:p') =~ '^' . expand(g:wiki_base.':p')
+if expand('%:p') =~ '^' . g:wiki_base
   let g:notes_files = {
               \ 'name': 'notes',
               \ 'complete_length': -1,
