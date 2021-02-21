@@ -65,10 +65,20 @@ Plug 'plasticboy/vim-markdown'
 Plug 'junegunn/goyo.vim'
 
 Plug 'vim-python/python-syntax'
+Plug 'psf/black', { 'branch': 'stable' } " formatting
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 "Plug 'junegunn/limelight.vim'
 
+Plug 'hashivim/vim-terraform'
+Plug 'pearofducks/ansible-vim'
+
+Plug  'mrk21/yaml-vim'
+
 call plug#end()
+
+let mapleader=","
 
 let g:python_highlight_all = 1
 
@@ -90,6 +100,7 @@ source ~/.config/nvim/config/undotree.vim
 source ~/.config/nvim/config/wiki.vim
 source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/ncm2.vim
+source ~/.config/nvim/config/ale.vim
 source ~/.config/nvim/config/jedi.vim
 source ~/.config/nvim/config/gutentags.vim
 
