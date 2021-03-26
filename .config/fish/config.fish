@@ -20,3 +20,4 @@ contains $HOME/.yarn/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.yar
 set -x N_PREFIX $HOME/n_node_versions
 contains $HOME/n_node_versions/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/n_node_versions/bin
 
+

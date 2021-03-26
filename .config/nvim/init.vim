@@ -75,6 +75,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'pearofducks/ansible-vim'
 
 Plug  'mrk21/yaml-vim'
+Plug 'Chiel92/vim-autoformat'
 
 call plug#end()
 
@@ -103,6 +104,7 @@ source ~/.config/nvim/config/ncm2.vim
 source ~/.config/nvim/config/ale.vim
 source ~/.config/nvim/config/jedi.vim
 source ~/.config/nvim/config/gutentags.vim
+source ~/.config/nvim/config/autoformat.vim
 
 "source ~/.config/nvim/config/coc.vim
 

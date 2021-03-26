@@ -2,8 +2,8 @@
 set nocompatible
 
 " Helps force plugins to load correctly when it is turned back on below
-"filetype off
-filetype plugin on
+filetype off
+"filetype plugin on
 " remove unused imports
 "" python (needs autoflake)
 autocmd FileType python noremap <C-A-o> :!autoflake --in-place --remove-unused-variables --expand-star-imports --remove-all-unused-imports %<CR>
