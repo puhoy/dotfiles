@@ -7,27 +7,6 @@ Plug 'tpope/vim-vinegar'  " nicer netrw
 " file tree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'lambdalisue/fern.vim'
-"Plug 'lambdalisue/fern-git-status.vim'
-"Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-"Plug 'LumaKernel/fern-mapping-reload-all.vim'
-"Plug 'lambdalisue/nerdfont.vim'
-
-Plug 'tpope/vim-vinegar'
-
-" ncm2 requirement
-Plug 'roxma/nvim-yarp' 
-Plug 'ncm2/ncm2'
-"python
-Plug 'ncm2/ncm2-jedi'
-" js, ts
-Plug 'ncm2/ncm2-tern'
-Plug 'ncm2/ncm2-vim'
-" have gotodefinition and jedi keybindings...
-Plug 'davidhalter/jedi-vim'
-
-" linting
-Plug 'dense-analysis/ale'
 
 " show git changes
 Plug 'mhinz/vim-signify'
@@ -41,14 +20,18 @@ Plug 'mbbill/undotree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" automatic generate ctags (needs ctags installed)
-Plug 'ludovicchabant/vim-gutentags'
-
 " colorscheme
-Plug 'morhetz/gruvbox'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'huytd/vim-espresso-tutti'
+Plug 'rktjmp/lush.nvim'
+Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
 
+Plug 'monsonjeremy/onedark.nvim'
+
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" generate missing lsp colors
+"Plug 'folke/lsp-colors.nvim', { 'branch': 'main' }
 
 " fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -57,60 +40,72 @@ Plug 'junegunn/fzf.vim'
 " add 'surroundings'
 Plug 'tpope/vim-surround'
 
-" markdown rendering (conceal links etc..)
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+"Plug 'Chiel92/vim-autoformat'
 
-" distraction free writing
-Plug 'junegunn/goyo.vim'
+" smooth scrolling
+Plug 'psliwka/vim-smoothie'
 
-Plug 'vim-python/python-syntax'
-Plug 'psf/black', { 'branch': 'stable' } " formatting
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
-"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+" pgp
+Plug 'jamessan/vim-gnupg'
 
-"Plug 'junegunn/limelight.vim'
+" lsp
+Plug 'neovim/nvim-lspconfig'
+" lsp autocomplete
+Plug 'hrsh7th/nvim-compe'
 
-Plug 'hashivim/vim-terraform'
-Plug 'pearofducks/ansible-vim'
+" nicer ui
+Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
-Plug  'mrk21/yaml-vim'
-Plug 'Chiel92/vim-autoformat'
+
+" install languageservers
+Plug 'kabouzeid/nvim-lspinstall', { 'branch': 'main' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
 
 let mapleader=","
 
-let g:python_highlight_all = 1
+lua<<end
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+ vim.lsp.diagnostic.on_publish_diagnostics, {
+   -- Enable signs
+   signs = true,
+   virtual_text = {severity_limit = "Error",},
+   underline = true,
+ }
+)
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-"let g:UltiSnipsEditSplit="vertical"
+
+
+
+end
+
+set updatetime=300
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
 
 let g:VM_mouse_mappings = 1
 nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
+
 
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/nerdtree.vim
 source ~/.config/nvim/config/signify.vim
 source ~/.config/nvim/config/undotree.vim
-source ~/.config/nvim/config/wiki.vim
 source ~/.config/nvim/config/markdown.vim
-source ~/.config/nvim/config/ncm2.vim
-source ~/.config/nvim/config/ale.vim
-source ~/.config/nvim/config/jedi.vim
-source ~/.config/nvim/config/gutentags.vim
-source ~/.config/nvim/config/autoformat.vim
+source ~/.config/nvim/config/wiki.vim
 
-"source ~/.config/nvim/config/coc.vim
+source ~/.config/nvim/config/lsp.lua
+source ~/.config/nvim/config/compe.lua
+source ~/.config/nvim/config/lspsaga.lua
+source ~/.config/nvim/config/lspsaga_keymap.lua
+source ~/.config/nvim/config/lspinstall.lua
+source ~/.config/nvim/config/treesitter.lua
 
 source ~/.vimrc
-source ~/.config/nvim/config/main.vim
 
+source ~/.config/nvim/config/main.vim
 
 " open nonexistent file under cursor
 map <leader>gf :e <cfile><cr>

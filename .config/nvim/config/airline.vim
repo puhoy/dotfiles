@@ -11,3 +11,8 @@ let g:airline_theme='luna'
 
 
 let g:airline_statusline_ontop = 1
+
+" show lsp errors
+let g:airline#extensions#nvimlsp#enabled = 1
+let airline#extensions#nvimlsp#error_symbol = 'E:'
+let airline#extensions#nvimlsp#warning_symbol = 'W:'

@@ -14,7 +14,6 @@ au FocusLost * silent! :wa "|:SyntasticCheck
 " check for file changes that happened outside of vim
 au CursorHold,CursorHoldI * checktime
 
-
 " use system python, not venv
 let g:python3_host_prog = '/usr/bin/python3'
 
@@ -32,7 +31,19 @@ set inccommand=nosplit
 " put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
 " in ~/.vim/colors/ and uncomment:
 " colorscheme solarized
-set background=dark "dark theme
+
+
+lua << eof
+--vim.g.gruvbox_italic = 1
+--vim.g.background = "dark" --"dark theme
+
+--vim.cmd[[colorscheme gruvbox]]
+eof
+
+
+set termguicolors  
+set background=dark
+"colorscheme tokyonight
 colorscheme gruvbox
 "set background=light "light theme
 

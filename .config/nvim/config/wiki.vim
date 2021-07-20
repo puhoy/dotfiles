@@ -38,20 +38,23 @@ command! -nargs=1 WikiNote execute ':edit ' . g:wiki_base . strftime(g:wiki_note
 
 " match on [(
 " complete on all notes-files relative to current file path
-function WikiRegisterCompletion()
-if expand('%:p') =~ '^' . g:wiki_base
-  let g:notes_files = {
-              \ 'name': 'notes',
-              \ 'complete_length': -1,
-              \ 'complete_pattern': [ ']\('],  
-              \ 'scope': [ 'markdown' ],
-              \ 'on_complete': {c -> ncm2#complete(c,
-              \       c.startccol, 
-              \       systemlist('rg --files ' . g:wiki_base . ' | xargs realpath --relative-to=' . expand('%:h'))
-              \       )},
-              \ }
-  call ncm2#register_source(g:notes_files)
-endif
-endfunction
+" function WikiRegisterCompletion()
+" if expand('%:p') =~ '^' . g:wiki_base
+  " let g:notes_files = {
+              " \ 'name': 'notes',
+              " \ 'complete_length': -1,
+              " \ 'complete_pattern': [ ']\('],  
+              " \ 'scope': [ 'markdown' ],
+              " \ 'on_complete': {c -> ncm2#complete(c,
+              " \       c.startccol, 
+              " " \       systemlist('rg --files ' . g:wiki_base . ' | xargs realpath --relative-to=' . expand('%:h'))
+              " \       )},
+              " \ }
+  " call ncm2#register_source(g:notes_files)
+" endif
+" endfunction
 
-call WikiRegisterCompletion()
+" call WikiRegisterCompletion()
+
+
+

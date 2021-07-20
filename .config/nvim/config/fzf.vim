@@ -9,7 +9,7 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit',
   \ 'ctrl-o': ':r !echo' }
 
-
+nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 
 
 
