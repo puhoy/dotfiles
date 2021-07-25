@@ -1,5 +1,5 @@
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath = &runtimepath
+"set runtimepath^=~/.vim  and EOLuntimepath+=~/.vim/after let &packpath
+"= &runtimepath
 
 call plug#begin()
 Plug 'tpope/vim-vinegar'  " nicer netrw
@@ -50,40 +50,44 @@ Plug 'jamessan/vim-gnupg'
 
 " lsp
 Plug 'neovim/nvim-lspconfig'
+
 " lsp autocomplete
-Plug 'hrsh7th/nvim-compe'
-
-" nicer ui
-Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
-
+"Plug 'hrsh7th/nvim-compe'
+Plug 'nvim-lua/completion-nvim'
+" treesitter completion source
+Plug 'nvim-treesitter/completion-treesitter'
 
 " install languageservers
 Plug 'kabouzeid/nvim-lspinstall', { 'branch': 'main' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+Plug 'ray-x/lsp_signature.nvim'
+
+" Vim Script
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'folke/trouble.nvim'
+
+
 call plug#end()
 
 let mapleader=","
+
+lua << EOF
+  require("trouble").setup {
+  }
+EOF
 
 lua<<end
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {
    -- Enable signs
    signs = true,
-   virtual_text = {severity_limit = "Error",},
+   virtual_text = false,
    underline = true,
  }
 )
-
-
-
-
 end
-
-set updatetime=300
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
-
-
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
 let g:VM_mouse_mappings = 1
 nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
@@ -97,11 +101,10 @@ source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/wiki.vim
 
 source ~/.config/nvim/config/lsp.lua
-source ~/.config/nvim/config/compe.lua
-source ~/.config/nvim/config/lspsaga.lua
-source ~/.config/nvim/config/lspsaga_keymap.lua
-source ~/.config/nvim/config/lspinstall.lua
+"source ~/.config/nvim/config/compe.lua
 source ~/.config/nvim/config/treesitter.lua
+source ~/.config/nvim/config/nvim_completion.vim
+" should be in lua, but autocmd has no interface yet https://github.com/neovim/neovim/pull/12378
 
 source ~/.vimrc
 
