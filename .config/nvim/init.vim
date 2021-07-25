@@ -72,10 +72,6 @@ call plug#end()
 
 let mapleader=","
 
-lua << EOF
-  require("trouble").setup {
-  }
-EOF
 
 lua<<end
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -124,9 +120,30 @@ command! -nargs=1 Random :call setline(line('.'), getline(line('.')) .  system("
 
 " set working dir to current file
 "autocmd BufEnter * silent! lcd %:p:h
-let g:goyo_height= '100%'
 
+lua << EOF
+  require("trouble").setup {
+      signs = {
+            -- icons / text used for a diagnostic
+            error = "",
+            warning = "",
+            hint = "",
+            information = "",
+            other = "﫠"
+        },
+        use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+  }
 
+-- set regular nvim lsp signs as well
+vim.fn.sign_define("LspDiagnosticsSignError",
+    {text = ""})
+vim.fn.sign_define("LspDiagnosticsSignWarning",
+    {text = ""})
+vim.fn.sign_define("LspDiagnosticsSignInformation",
+    {text = ""})
+vim.fn.sign_define("LspDiagnosticsSignHint",
+    {text = "﫠"})
+EOF
 syntax on
 
 "" dependencies
