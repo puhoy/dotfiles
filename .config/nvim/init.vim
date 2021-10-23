@@ -5,9 +5,10 @@ call plug#begin()
 Plug 'tpope/vim-vinegar'  " nicer netrw
 
 " file tree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
+"Plug 'preservim/nerdtree'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
 " show git changes
 Plug 'mhinz/vim-signify'
 " git commands in vim
@@ -53,7 +54,11 @@ Plug 'neovim/nvim-lspconfig'
 
 " lsp autocomplete
 "Plug 'hrsh7th/nvim-compe'
-Plug 'nvim-lua/completion-nvim'
+"Plug 'nvim-lua/completion-nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+
 " treesitter completion source
 Plug 'nvim-treesitter/completion-treesitter'
 
@@ -67,6 +72,7 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
+"Plug 'soywod/himalaya', {'rtp': 'vim'}
 
 call plug#end()
 
@@ -90,16 +96,19 @@ nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/fzf.vim
-source ~/.config/nvim/config/nerdtree.vim
+"source ~/.config/nvim/config/nerdtree.vim
+source ~/.config/nvim/config/nvim-tree.vim
+source ~/.config/nvim/config/nvim-tree.lua
 source ~/.config/nvim/config/signify.vim
 source ~/.config/nvim/config/undotree.vim
 source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/wiki.vim
 
+source ~/.config/nvim/config/nvim_cmp.lua
 source ~/.config/nvim/config/lsp.lua
 "source ~/.config/nvim/config/compe.lua
 source ~/.config/nvim/config/treesitter.lua
-source ~/.config/nvim/config/nvim_completion.vim
+"source ~/.config/nvim/config/nvim_completion.vim
 " should be in lua, but autocmd has no interface yet https://github.com/neovim/neovim/pull/12378
 
 source ~/.vimrc
@@ -131,7 +140,8 @@ lua << EOF
             information = "",
             other = "﫠"
         },
-        use_lsp_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+        use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
+        mode = "lsp_document_diagnostics", -- "lsp_workspace_diagnostics", "lsp_document_diagnostics", "quickfix", "lsp_references", "loclist"
   }
 
 -- set regular nvim lsp signs as well

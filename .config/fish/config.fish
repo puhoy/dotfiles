@@ -20,4 +20,20 @@ contains $HOME/.yarn/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.yar
 set -x N_PREFIX $HOME/n_node_versions
 contains $HOME/n_node_versions/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/n_node_versions/bin
 
+#function fish_greeting
+    # 
+    # set get_weather curl --silent "https://wttr.in/?format=%l:+%c++%C+|+%t(%f)+|+%w+|+%S%m%s\n"
+    # 
+    # set current_date (date +%m%d%Y%H)
+    # 
+    # set tmp_file "/tmp/wttr_$current_date"
+
+    # if not test -f "$tmp_file" 
+        # {$get_weather} > $tmp_file
+    # end
+
+    # cat $tmp_file | lolcat -r
+# end
+
+fzf_key_bindings
 
