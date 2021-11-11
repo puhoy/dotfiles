@@ -23,6 +23,7 @@ require'nvim-tree'.setup {
   hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = false,
+  hide_dotfiles = 0,
   -- show lsp diagnostics in the signcolumn
   diagnostics     = {
       enable = true,
@@ -44,6 +45,16 @@ require'nvim-tree'.setup {
     cmd  = nil,
     -- the command arguments as a list
     args = {}
+  },
+
+  filters = {
+      dotfiles = true,
+    custom = {
+        '.git',
+        'node_modules',
+        'cache',
+        '__pycache__',
+    },
   },
 
   view = {
