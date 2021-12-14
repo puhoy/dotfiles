@@ -35,8 +35,11 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 "Plug 'folke/lsp-colors.nvim', { 'branch': 'main' }
 
 " fuzzy finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"Plug 'junegunn/fzf.vim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " add 'surroundings'
 Plug 'tpope/vim-surround'
@@ -173,4 +176,6 @@ syntax on
 " nerd-fonts-noto-sans-mono  # symbols for fern tree todo: thats probably not
 " the needed font?
 
-
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>

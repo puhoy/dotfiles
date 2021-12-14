@@ -31,7 +31,7 @@ require'nvim-tree'.setup {
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
-    enable      = true,
+    enable      = false,
     -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
     -- only relevant when `update_focused_file.enable` is true
     update_cwd  = false,
@@ -48,7 +48,7 @@ require'nvim-tree'.setup {
   },
 
   filters = {
-      dotfiles = true,
+      dotfiles = false,
     custom = {
         '.git',
         'node_modules',
@@ -65,7 +65,7 @@ require'nvim-tree'.setup {
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     -- if true the tree will resize itself after opening a file
-    auto_resize = false,
+    auto_resize = true,
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
