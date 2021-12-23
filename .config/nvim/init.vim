@@ -112,6 +112,9 @@ source ~/.config/nvim/config/nvim_cmp.lua
 source ~/.config/nvim/config/lsp.lua
 "source ~/.config/nvim/config/compe.lua
 source ~/.config/nvim/config/treesitter.lua
+source ~/.config/nvim/config/telescope-config.lua
+source ~/.config/nvim/config/telescope.lua
+
 "source ~/.config/nvim/config/nvim_completion.vim
 " should be in lua, but autocmd has no interface yet https://github.com/neovim/neovim/pull/12378
 
@@ -176,6 +179,3 @@ syntax on
 " nerd-fonts-noto-sans-mono  # symbols for fern tree todo: thats probably not
 " the needed font?
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
