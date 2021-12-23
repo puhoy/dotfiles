@@ -37,7 +37,6 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " fuzzy finder
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
@@ -67,7 +66,8 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-treesitter/completion-treesitter'
 
 " install languageservers
-Plug 'kabouzeid/nvim-lspinstall', { 'branch': 'main' }
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'ray-x/lsp_signature.nvim'
@@ -118,6 +118,9 @@ source ~/.config/nvim/config/telescope.lua
 "source ~/.config/nvim/config/nvim_completion.vim
 " should be in lua, but autocmd has no interface yet https://github.com/neovim/neovim/pull/12378
 
+source ~/.config/nvim/config/nvim_telescope.vim
+
+
 source ~/.vimrc
 
 source ~/.config/nvim/config/main.vim
@@ -148,7 +151,7 @@ lua << EOF
             other = "﫠"
         },
         use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
-        mode = "lsp_document_diagnostics", -- "lsp_workspace_diagnostics", "lsp_document_diagnostics", "quickfix", "lsp_references", "loclist"
+        mode = "document_diagnostics", -- "lsp_workspace_diagnostics", "lsp_document_diagnostics", "quickfix", "lsp_references", "loclist"
   }
 
 -- set regular nvim lsp signs as well

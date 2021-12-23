@@ -12,6 +12,7 @@
 
 # Uncomment this to still load settings configured via autoconfig.yml
 # config.load_autoconfig()
+config.load_autoconfig()
 
 # Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
 # environment variable and is useful to force using the XCB plugin when
@@ -172,7 +173,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', False, 'https://mastodon.social')
+config.set('content.notifications.enabled', False, 'https://mastodon.social')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -180,7 +181,7 @@ config.set('content.notifications', False, 'https://mastodon.social')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', True, 'https://mstdn.io')
+config.set('content.notifications.enabled', True, 'https://mstdn.io')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -188,7 +189,7 @@ config.set('content.notifications', True, 'https://mstdn.io')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', False, 'https://www.reddit.com')
+config.set('content.notifications.enabled', False, 'https://www.reddit.com')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -196,7 +197,7 @@ config.set('content.notifications', False, 'https://www.reddit.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', False, 'https://www.rt.com')
+config.set('content.notifications.enabled', False, 'https://www.rt.com')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -204,7 +205,7 @@ config.set('content.notifications', False, 'https://www.rt.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', False, 'https://www.tagesspiegel.de')
+config.set('content.notifications.enabled', False, 'https://www.tagesspiegel.de')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -212,7 +213,7 @@ config.set('content.notifications', False, 'https://www.tagesspiegel.de')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', False, 'https://www.sueddeutsche.de')
+config.set('content.notifications.enabled', False, 'https://www.sueddeutsche.de')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -220,12 +221,12 @@ config.set('content.notifications', False, 'https://www.sueddeutsche.de')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications', False, 'https://www.conrad.de')
+config.set('content.notifications.enabled', False, 'https://www.conrad.de')
 
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'https://startpage.com/'
+c.url.default_page = 'https://duckduckgo.com/'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -269,5 +270,4 @@ c.tabs.select_on_remove = "prev"
 c.completion.shrink = True
 
 c.tabs.background = True
-
 
