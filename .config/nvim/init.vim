@@ -25,6 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rktjmp/lush.nvim'
 Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
 
+
 Plug 'monsonjeremy/onedark.nvim'
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
