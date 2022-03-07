@@ -1,6 +1,10 @@
 -- following options are the default
 require'nvim-tree'.setup {
-  gitignore = false,  
+    git = {
+        enable = true,
+        ignore = false,
+        timeout = 500,
+    },
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
@@ -60,7 +64,7 @@ require'nvim-tree'.setup {
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
-    width = 20,
+    width = 30,
     -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
     height = 30,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'

@@ -78,7 +78,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
 "Plug 'soywod/himalaya', {'rtp': 'vim'}
-
+Plug 'chrisbra/csv.vim'
 call plug#end()
 
 let mapleader=","
