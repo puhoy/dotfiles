@@ -5,6 +5,9 @@ require'nvim-tree'.setup {
         ignore = false,
         timeout = 500,
     },
+  window_picker_exclude = {},
+  disable_window_picker = 0,  -- 0 by default, will disable the window picker.
+  quit_on_open = 0,  -- 0 by default, closes the tree when you open a file
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
