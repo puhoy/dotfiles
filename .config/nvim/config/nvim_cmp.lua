@@ -24,7 +24,7 @@
     sources = {
       { name = 'nvim_lsp' },
       { name = 'path' },
-
+      { name = 'nvim_lsp_signature_help' },
       -- For vsnip user.
       -- { name = 'vsnip' },
 

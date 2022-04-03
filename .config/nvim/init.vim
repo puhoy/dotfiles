@@ -61,6 +61,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/nvim-cmp'
 
 " treesitter completion source
@@ -89,7 +90,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {
    -- Enable signs
    signs = true,
-   virtual_text = false,
+   virtual_text = true,
    underline = true,
  }
 )
