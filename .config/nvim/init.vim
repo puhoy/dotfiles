@@ -152,6 +152,8 @@ lua << EOF
             information = "",
             other = "﫠"
         },
+        auto_open = true,
+        auto_close = true,
         use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
         mode = "document_diagnostics", -- "lsp_workspace_diagnostics", "lsp_document_diagnostics", "quickfix", "lsp_references", "loclist"
   }
