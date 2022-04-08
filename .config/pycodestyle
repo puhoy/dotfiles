@@ -1,0 +1,5 @@
+[pycodestyle]
+max-line-length = 120
+
+# blank line at end of file
+ignore = W391
