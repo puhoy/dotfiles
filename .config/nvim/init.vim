@@ -90,7 +90,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {
    -- Enable signs
    signs = true,
-   virtual_text = true,
+   virtual_text = false,
    underline = true,
  }
 )
@@ -169,6 +169,12 @@ vim.fn.sign_define("LspDiagnosticsSignHint",
     {text = "﫠"})
 EOF
 syntax on
+
+
+let g:neovide_refresh_rate=140
+let g:neovide_cursor_animation_length=0.05
+set guifont=DejaVu_Sans_Mono:h10
+
 
 "" dependencies
 " pip 
