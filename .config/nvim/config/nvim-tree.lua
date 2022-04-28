@@ -5,9 +5,6 @@ require'nvim-tree'.setup {
         ignore = false,
         timeout = 500,
     },
-  window_picker_exclude = {},
-  disable_window_picker = 0,  -- 0 by default, will disable the window picker.
-  quit_on_open = 0,  -- 0 by default, closes the tree when you open a file
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
@@ -18,18 +15,10 @@ require'nvim-tree'.setup {
   ignore_ft_on_setup  = {},
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab         = false,
-  -- hijacks new directory buffers when they are opened.
-  update_to_buf_dir   = {
-    -- enable the feature
-    enable = true,
-    -- allow to open the tree if it was previously closed
-    auto_open = true,
-  },
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = false,
-  hide_dotfiles = 0,
   -- show lsp diagnostics in the signcolumn
   diagnostics     = {
       enable = true,
@@ -70,8 +59,6 @@ require'nvim-tree'.setup {
     height = 30,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
-    -- if true the tree will resize itself after opening a file
-    auto_resize = false,
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
