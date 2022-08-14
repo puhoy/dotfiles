@@ -17,7 +17,20 @@ require("telescope").project_files = function()
 end
 
 
+
+local actions = require "telescope.actions"
+require("telescope").setup {
+  pickers = {
+    buffers = {
+      mappings = {
+        i = {
+          ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+        }
+      }
+    }
+  }
+}
+
 vim.api.nvim_set_keymap("n", "<Leader>ff", "<CMD>lua require'telescope'.project_files()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<Leader>fg", "<CMD>lua require'telescope.builtin'.live_grep()<CR>", {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<Leader>fb", "<CMD>lua require'telescope.builtin'.buffers()<CR>", {noremap = true, silent = true})
-

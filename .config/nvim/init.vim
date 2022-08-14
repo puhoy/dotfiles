@@ -23,7 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " colorscheme
 Plug 'rktjmp/lush.nvim'
-Plug 'npxbr/gruvbox.nvim', { 'branch': 'main' }
+Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
 
 
 Plug 'monsonjeremy/onedark.nvim'
@@ -80,6 +80,9 @@ Plug 'folke/trouble.nvim'
 
 "Plug 'soywod/himalaya', {'rtp': 'vim'}
 Plug 'chrisbra/csv.vim'
+
+
+Plug 'gpanders/editorconfig.nvim'
 call plug#end()
 
 let mapleader=","

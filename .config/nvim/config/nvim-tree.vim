@@ -1,6 +1,5 @@
 
 
-
 nnoremap <leader>t :NvimTreeRefresh<CR> :NvimTreeFindFileToggle<CR>
 nnoremap <leader>T :NvimTreeRefresh<CR> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
