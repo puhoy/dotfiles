@@ -44,6 +44,7 @@ eof
 set termguicolors  
 set background=dark
 "colorscheme tokyonight
+
 colorscheme gruvbox
 "set background=light "light theme
 
