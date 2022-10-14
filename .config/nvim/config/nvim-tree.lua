@@ -43,7 +43,7 @@ require'nvim-tree'.setup {
   },
 
   filters = {
-      dotfiles = false,
+    dotfiles = false,
     custom = {
         '.git',
         'node_modules',
@@ -54,9 +54,8 @@ require'nvim-tree'.setup {
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
-    width = 30,
-    -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
-    height = 30,
+    --width = 30,
+    adaptive_size = true,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     mappings = {

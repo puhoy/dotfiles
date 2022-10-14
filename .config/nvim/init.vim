@@ -30,6 +30,8 @@ Plug 'monsonjeremy/onedark.nvim'
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+Plug 'sainnhe/edge'
+
 "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
 " generate missing lsp colors
@@ -81,8 +83,8 @@ Plug 'folke/trouble.nvim'
 "Plug 'soywod/himalaya', {'rtp': 'vim'}
 Plug 'chrisbra/csv.vim'
 
-
 Plug 'gpanders/editorconfig.nvim'
+
 call plug#end()
 
 let mapleader=","
@@ -159,6 +161,7 @@ lua << EOF
         auto_close = true,
         use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
         mode = "document_diagnostics", -- "lsp_workspace_diagnostics", "lsp_document_diagnostics", "quickfix", "lsp_references", "loclist"
+        height = 5,
   }
 
 -- set regular nvim lsp signs as well
