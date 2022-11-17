@@ -43,19 +43,15 @@ require'nvim-tree'.setup {
   },
 
   filters = {
-    dotfiles = false,
     custom = {
-        '.git',
-        'node_modules',
-        'cache',
         '__pycache__',
     },
   },
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
-    --width = 30,
-    adaptive_size = true,
+    width = 30,
+    --adaptive_size = true,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     mappings = {
@@ -66,11 +62,6 @@ require'nvim-tree'.setup {
       list = {}
     },
   },
-  actions = {
-        open_file = {
-            resize_window = false
-        }
-  }
 }
 
 

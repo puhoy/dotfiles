@@ -20,6 +20,10 @@ contains $HOME/.yarn/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.yar
 set -x N_PREFIX $HOME/n_node_versions
 contains $HOME/n_node_versions/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/n_node_versions/bin
 
+function proj
+    set folder "$(find ~/code* -name .git -type d -prune | fzf)/../" && cd $folder
+end
+
 #function fish_greeting
     # 
     # set get_weather curl --silent "https://wttr.in/?format=%l:+%c++%C+|+%t(%f)+|+%w+|+%S%m%s\n"
