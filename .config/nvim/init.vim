@@ -85,6 +85,10 @@ Plug 'chrisbra/csv.vim'
 
 Plug 'gpanders/editorconfig.nvim'
 
+
+Plug 'numToStr/Comment.nvim'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
 call plug#end()
 
 let mapleader=","
@@ -100,9 +104,13 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  }
 )
 end
+
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 let g:VM_mouse_mappings = 1
 nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
+
+
+nmap gx :!open <c-r><c-a>
 
 
 source ~/.config/nvim/config/airline.vim
@@ -121,12 +129,10 @@ source ~/.config/nvim/config/lsp.lua
 source ~/.config/nvim/config/treesitter.lua
 source ~/.config/nvim/config/telescope-config.lua
 source ~/.config/nvim/config/telescope.lua
+source ~/.config/nvim/config/comment_nvim.lua
 
 "source ~/.config/nvim/config/nvim_completion.vim
 " should be in lua, but autocmd has no interface yet https://github.com/neovim/neovim/pull/12378
-
-source ~/.config/nvim/config/nvim_telescope.vim
-
 
 source ~/.vimrc
 
