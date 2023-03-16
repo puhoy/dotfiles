@@ -1,12 +1,6 @@
-"set runtimepath^=~/.vim  and EOLuntimepath+=~/.vim/after let &packpath
-"= &runtimepath
 
 call plug#begin()
-Plug 'tpope/vim-vinegar'  " nicer netrw
-
 " file tree
-"Plug 'preservim/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 " show git changes
@@ -14,42 +8,16 @@ Plug 'mhinz/vim-signify'
 " git commands in vim
 Plug 'tpope/vim-fugitive'
 
-" visualize undos
-Plug 'mbbill/undotree'
-
 " display buffers as 'tabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " colorscheme
-Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
 
-
-Plug 'monsonjeremy/onedark.nvim'
-
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
-Plug 'sainnhe/edge'
-
-"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
-" generate missing lsp colors
-"Plug 'folke/lsp-colors.nvim', { 'branch': 'main' }
-
 " fuzzy finder
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
-" add 'surroundings'
-Plug 'tpope/vim-surround'
-
-"Plug 'Chiel92/vim-autoformat'
-
-" smooth scrolling
-Plug 'psliwka/vim-smoothie'
 
 " pgp
 Plug 'jamessan/vim-gnupg'
@@ -70,8 +38,9 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-treesitter/completion-treesitter'
 
 " install languageservers
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'ray-x/lsp_signature.nvim'
@@ -80,11 +49,13 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
-"Plug 'soywod/himalaya', {'rtp': 'vim'}
 Plug 'chrisbra/csv.vim'
 
 Plug 'gpanders/editorconfig.nvim'
 
+Plug 'numToStr/Comment.nvim'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
 call plug#end()
 
 let mapleader=","
@@ -100,33 +71,33 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  }
 )
 end
+
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 let g:VM_mouse_mappings = 1
 nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
 
+nmap gx :!open <c-r><c-a>
+
+
 source ~/.config/nvim/config/airline.vim
-source ~/.config/nvim/config/fzf.vim
-"source ~/.config/nvim/config/nerdtree.vim
 source ~/.config/nvim/config/nvim-tree.vim
 source ~/.config/nvim/config/nvim-tree.lua
 source ~/.config/nvim/config/signify.vim
-source ~/.config/nvim/config/undotree.vim
 source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/wiki.vim
 
 source ~/.config/nvim/config/nvim_cmp.lua
+" lsp config, keymaps
 source ~/.config/nvim/config/lsp.lua
 "source ~/.config/nvim/config/compe.lua
 source ~/.config/nvim/config/treesitter.lua
 source ~/.config/nvim/config/telescope-config.lua
 source ~/.config/nvim/config/telescope.lua
+source ~/.config/nvim/config/comment_nvim.lua
 
 "source ~/.config/nvim/config/nvim_completion.vim
 " should be in lua, but autocmd has no interface yet https://github.com/neovim/neovim/pull/12378
-
-source ~/.config/nvim/config/nvim_telescope.vim
-
 
 source ~/.vimrc
 
@@ -146,6 +117,7 @@ command! -nargs=1 Random :call setline(line('.'), getline(line('.')) .  system("
 
 " set working dir to current file
 "autocmd BufEnter * silent! lcd %:p:h
+
 
 lua << EOF
   require("trouble").setup {
@@ -176,9 +148,6 @@ vim.fn.sign_define("LspDiagnosticsSignHint",
 EOF
 syntax on
 
-
-let g:neovide_refresh_rate=140
-let g:neovide_cursor_animation_length=0.05
 set guifont=DejaVu_Sans_Mono:h10
 
 

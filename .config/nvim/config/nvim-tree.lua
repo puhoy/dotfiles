@@ -9,12 +9,6 @@ require'nvim-tree'.setup {
   disable_netrw       = true,
   -- hijack netrw window on startup
   hijack_netrw        = true,
-  -- open the tree when running this setup function
-  open_on_setup       = true,
-  -- will not open on setup if the filetype is in this list
-  ignore_ft_on_setup  = {},
-  -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
-  open_on_tab         = false,
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
@@ -47,10 +41,18 @@ require'nvim-tree'.setup {
         '__pycache__',
     },
   },
+  renderer = {
+    highlight_opened_files = 'all',
+    highlight_modified = 'all'
+  },
 
   view = {
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
-    width = 30,
+    width = {
+        30,
+        50,
+        1
+    },
     --adaptive_size = true,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
@@ -64,4 +66,20 @@ require'nvim-tree'.setup {
   },
 }
 
+local function open_nvim_tree(data)
 
+  -- buffer is a directory
+  local directory = vim.fn.isdirectory(data.file) == 1
+
+  if not directory then
+    return
+  end
+
+  -- change to the directory
+  vim.cmd.cd(data.file)
+
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
