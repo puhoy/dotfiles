@@ -34,9 +34,6 @@ Plug 'sainnhe/edge'
 
 "Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
 
-" generate missing lsp colors
-"Plug 'folke/lsp-colors.nvim', { 'branch': 'main' }
-
 " fuzzy finder
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
@@ -70,8 +67,9 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'nvim-treesitter/completion-treesitter'
 
 " install languageservers
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'williamboman/mason.nvim'
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'ray-x/lsp_signature.nvim'
@@ -112,6 +110,24 @@ nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
 nmap gx :!open <c-r><c-a>
 
+lua << EOF
+-- lsp server setup
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers {
+    -- The first entry (without a key) will be the default handler
+    -- and will be called for each installed server that doesn't have
+    -- a dedicated handler.
+    function (server_name) -- default handler (optional)
+        require("lspconfig")[server_name].setup {}
+    end,
+    -- Next, you can provide a dedicated handler for specific servers.
+    -- For example, a handler override for the `rust_analyzer`:
+    --["rust_analyzer"] = function ()
+    --    require("rust-tools").setup {}
+    --end
+}
+EOF
 
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/fzf.vim
@@ -124,6 +140,7 @@ source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/wiki.vim
 
 source ~/.config/nvim/config/nvim_cmp.lua
+" lsp config, keymaps
 source ~/.config/nvim/config/lsp.lua
 "source ~/.config/nvim/config/compe.lua
 source ~/.config/nvim/config/treesitter.lua
@@ -152,6 +169,7 @@ command! -nargs=1 Random :call setline(line('.'), getline(line('.')) .  system("
 
 " set working dir to current file
 "autocmd BufEnter * silent! lcd %:p:h
+
 
 lua << EOF
   require("trouble").setup {
