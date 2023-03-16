@@ -1,12 +1,6 @@
-"set runtimepath^=~/.vim  and EOLuntimepath+=~/.vim/after let &packpath
-"= &runtimepath
 
 call plug#begin()
-Plug 'tpope/vim-vinegar'  " nicer netrw
-
 " file tree
-"Plug 'preservim/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 " show git changes
@@ -14,39 +8,16 @@ Plug 'mhinz/vim-signify'
 " git commands in vim
 Plug 'tpope/vim-fugitive'
 
-" visualize undos
-Plug 'mbbill/undotree'
-
 " display buffers as 'tabs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " colorscheme
-Plug 'rktjmp/lush.nvim'
 Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
 
-
-Plug 'monsonjeremy/onedark.nvim'
-
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
-Plug 'sainnhe/edge'
-
-"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-
 " fuzzy finder
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
-" add 'surroundings'
-Plug 'tpope/vim-surround'
-
-"Plug 'Chiel92/vim-autoformat'
-
-" smooth scrolling
-Plug 'psliwka/vim-smoothie'
 
 " pgp
 Plug 'jamessan/vim-gnupg'
@@ -78,11 +49,9 @@ Plug 'ray-x/lsp_signature.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
-"Plug 'soywod/himalaya', {'rtp': 'vim'}
 Plug 'chrisbra/csv.vim'
 
 Plug 'gpanders/editorconfig.nvim'
-
 
 Plug 'numToStr/Comment.nvim'
 
@@ -112,12 +81,9 @@ nmap gx :!open <c-r><c-a>
 
 
 source ~/.config/nvim/config/airline.vim
-source ~/.config/nvim/config/fzf.vim
-"source ~/.config/nvim/config/nerdtree.vim
 source ~/.config/nvim/config/nvim-tree.vim
 source ~/.config/nvim/config/nvim-tree.lua
 source ~/.config/nvim/config/signify.vim
-source ~/.config/nvim/config/undotree.vim
 source ~/.config/nvim/config/markdown.vim
 source ~/.config/nvim/config/wiki.vim
 
@@ -182,9 +148,6 @@ vim.fn.sign_define("LspDiagnosticsSignHint",
 EOF
 syntax on
 
-
-let g:neovide_refresh_rate=140
-let g:neovide_cursor_animation_length=0.05
 set guifont=DejaVu_Sans_Mono:h10
 
 
