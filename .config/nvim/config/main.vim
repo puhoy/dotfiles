@@ -23,7 +23,6 @@ set clipboard=unnamed,unnamedplus
 " preview substitutions
 set inccommand=nosplit
 
-
 " Color scheme (terminal)
 "set t_Co=256
 "let g:solarized_termcolors=256

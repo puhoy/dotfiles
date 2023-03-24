@@ -32,6 +32,8 @@
        c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
      }),
     },
+    preselect = cmp.PreselectMode.None,
+
     sources = {
       { name = 'nvim_lsp' },
       { name = 'path' },
