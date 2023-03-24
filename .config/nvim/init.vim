@@ -26,7 +26,6 @@ Plug 'jamessan/vim-gnupg'
 Plug 'neovim/nvim-lspconfig'
 
 " lsp autocomplete
-"Plug 'hrsh7th/nvim-compe'
 "Plug 'nvim-lua/completion-nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -90,14 +89,10 @@ source ~/.config/nvim/config/wiki.vim
 source ~/.config/nvim/config/nvim_cmp.lua
 " lsp config, keymaps
 source ~/.config/nvim/config/lsp.lua
-"source ~/.config/nvim/config/compe.lua
 source ~/.config/nvim/config/treesitter.lua
 source ~/.config/nvim/config/telescope-config.lua
 source ~/.config/nvim/config/telescope.lua
 source ~/.config/nvim/config/comment_nvim.lua
-
-"source ~/.config/nvim/config/nvim_completion.vim
-" should be in lua, but autocmd has no interface yet https://github.com/neovim/neovim/pull/12378
 
 source ~/.vimrc
 
