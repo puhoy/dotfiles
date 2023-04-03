@@ -1,4 +1,5 @@
 local actions = require "telescope.actions"
+local trouble = require("trouble.providers.telescope")
 
 require("telescope").setup({
     defaults = {
@@ -10,13 +11,22 @@ require("telescope").setup({
                 width = 0.5
             }
         },
+        mappings = {
+            i = {
+                ["<c-d>"] = actions.delete_buffer,
+                ["<c-t>"] = trouble.open_with_trouble
+            },
+            n = { 
+                ["<c-t>"] = trouble.open_with_trouble 
+            },
+        }
     },
     pickers = {
         buffers = {
             mappings = {
                 i = {
                     ["<c-d>"] = actions.delete_buffer,
-                }
+                },
             }
         }
     }
