@@ -1,4 +1,13 @@
 
+profile t14s {
+    output "Chimei Innolux Corporation 0x14F2 Unknown" enable scale 1.2 mode 1920x1080 position 0,0
+}
+profile t14s_home_external {
+    output "Chimei Innolux Corporation 0x14F2 Unknown" enable scale 1.2 mode 1920x1080 position 0,0
+    output "LG Electronics LG Ultra HD 0x00004E00" enable scale 2 mode 3840x2160 position 1601,0
+}
+
+
 profile laptop {
 	output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
 }
@@ -16,4 +25,9 @@ profile t14s_home_external {
 profile home_one_external {
     output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
     output "HDMI-A-2" enable scale 1 mode 1920x1080 position 1600,0
+}
+
+profile home_one_external_2 {
+    output "Chimei Innolux Corporation 0x14F2 Unknown" enable scale 1.2 mode 1920x1080 position 0,0
+    output "HDMI-A-1" enable scale 1 mode 1920x1080 position 1601,0
 }
