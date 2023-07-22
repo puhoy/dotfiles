@@ -274,8 +274,14 @@ exec gammastep-indicator -t 5700:4000 -l 53.5:9.9 &
 exec mako --default-timeout 5000 &
 exec syncthing -no-browser &
 exec kanshi &
-exec ~/.config/sway/random_wallpaper.sh &
+exec ~/.config/sway/random_wallpaper.sh ~/∞/wallpapers &
 
+# clamshell
+# https://github.com/swaywm/sway/wiki#clamshell-mode
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ~/.config/sway/clamshell.sh
 
 ###### keybindings
 
