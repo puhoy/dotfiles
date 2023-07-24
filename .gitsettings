@@ -5,10 +5,37 @@
     fco = !git checkout $(git for-each-ref --sort='-committerdate' refs/heads/ --format='%(refname:short)' | fzf)
     set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
     last = !git for-each-ref --sort='-committerdate' --format='%(refname)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | head -n 10
+
 [pull]
 	rebase = false
+
 [init]
 	defaultBranch = main
+
 [push]
 	default = current
 	followTags = true
+
+[diff "ansible-vault"]
+	textconv = ansible-vault view
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+    syntax-theme = gruvbox-dark
+    hyperlinks = true
+    #pager = less -r # needed for hyperlinks, but doesnt work?
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
