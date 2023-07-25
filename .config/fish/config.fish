@@ -15,6 +15,7 @@ end
 contains $HOME/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/bin
 contains $HOME/go/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/go/bin
 contains $HOME/.yarn/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.yarn/bin
+contains $HOME/.local/pipx/venvs $fish_user_paths; or set -Ua fish_user_paths $HOME/.local/pipx/venvs
 
 # set n (node verion manager) base path
 set -x N_PREFIX $HOME/n_node_versions
@@ -22,6 +23,10 @@ contains $HOME/n_node_versions/bin $fish_user_paths; or set -Ua fish_user_paths 
 
 function proj
     set folder "$(find ~/code* -name .git -type d -prune | fzf)/../" && cd $folder
+end
+
+function now
+    cd ~/notes && nvim journal/$(date '+%Y/%m.md')
 end
 
 #function fish_greeting
