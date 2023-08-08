@@ -8,6 +8,7 @@ Plug 'kyazdani42/nvim-tree.lua' " needs web-devicons
 Plug 'mhinz/vim-signify'
 " git commands in vim
 Plug 'tpope/vim-fugitive'
+Plug 'f-person/git-blame.nvim'
 
 " display buffers as 'tabs'
 Plug 'vim-airline/vim-airline'
@@ -80,6 +81,7 @@ nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
 nmap gx :!open <c-r><c-a>
 
+command! Date :r!date "+\%F \%T"
 
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/nvim-tree.vim
@@ -143,6 +145,15 @@ vim.fn.sign_define("LspDiagnosticsSignInformation",
 vim.fn.sign_define("LspDiagnosticsSignHint",
     {text = "﫠"})
 EOF
+
+lua << EOF
+vim.opt.listchars = {
+  tab = '│ ',
+}
+vim.opt.list = true
+EOF
+
+
 syntax on
 
 set guifont=DejaVu_Sans_Mono:h10
