@@ -4,6 +4,8 @@ call plug#begin()
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua' " needs web-devicons
 
+Plug 'folke/which-key.nvim'
+
 " show git changes
 Plug 'mhinz/vim-signify'
 " git commands in vim
@@ -58,6 +60,9 @@ Plug 'gpanders/editorconfig.nvim'
 Plug 'numToStr/Comment.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
+
+Plug 'folke/zen-mode.nvim'
+
 call plug#end()
 
 let mapleader=","
@@ -101,6 +106,16 @@ source ~/.config/nvim/config/comment_nvim.lua
 source ~/.vimrc
 
 source ~/.config/nvim/config/main.vim
+
+lua << EOF
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+require("which-key").setup {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
+}
+EOF
 
 " open nonexistent file under cursor
 map <leader>gf :e <cfile><cr>

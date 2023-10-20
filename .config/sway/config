@@ -72,6 +72,8 @@ input "2:14:ETPS/2_Elantech_Touchpad" {
     middle_emulation enabled
 }
 
+input type:tablet_pad map_to_output HDMI-A-2
+input type:tablet_tool map_to_output HDMI-A-2
 
  #:::::::::disable_window_borders::::::::                                                                  
 default_border pixel 3
@@ -255,8 +257,14 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+# bar {
+# 	swaybar_command waybar
+# }
 
 include /etc/sway/config.d/*
+
+# disable idle if firefox in fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
 
 ###### autostart
 
