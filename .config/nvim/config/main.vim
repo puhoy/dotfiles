@@ -44,7 +44,8 @@ set termguicolors
 set background=dark
 "colorscheme tokyonight
 
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme kanagawa
 "set background=light "light theme
 
 "set background=light

@@ -30,13 +30,6 @@ require'nvim-tree'.setup {
     ignore_list = {}
   },
   -- configuration options for the system open command (`s` in the tree by default)
-  system_open = {
-    -- the command to run this, leaving nil should work in most cases
-    cmd  = nil,
-    -- the command arguments as a list
-    args = {}
-  },
-
   filters = {
     custom = {
         '__pycache__',
@@ -45,25 +38,6 @@ require'nvim-tree'.setup {
   renderer = {
     highlight_opened_files = 'all',
     highlight_modified = 'all'
-  },
-
-  view = {
-    -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
-    width = {
-        30,
-        50,
-        1
-    },
-    --adaptive_size = true,
-    -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
-    side = 'left',
-    mappings = {
-      -- custom only false will merge the list with the default mappings
-      -- if true, it will only use your list to set the mappings
-      custom_only = false,
-      -- list of mappings to set on the tree manually
-      list = {}
-    },
   },
 }
 

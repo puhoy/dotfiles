@@ -5,9 +5,12 @@ Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua' " needs web-devicons
 
 " show git changes
-Plug 'mhinz/vim-signify'
+"Plug 'mhinz/vim-signify'
+Plug 'lewis6991/gitsigns.nvim'
 " git commands in vim
 Plug 'tpope/vim-fugitive'
+" diff
+Plug 'sindrets/diffview.nvim'
 
 " display buffers as 'tabs'
 Plug 'vim-airline/vim-airline'
@@ -15,6 +18,7 @@ Plug 'vim-airline/vim-airline-themes'
 
 " colorscheme
 Plug 'ellisonleao/gruvbox.nvim', { 'branch': 'main' }
+Plug 'rebelot/kanagawa.nvim'
 
 " fuzzy finder
 Plug 'nvim-lua/plenary.nvim'
@@ -22,9 +26,6 @@ Plug 'nvim-telescope/telescope.nvim'
 
 " pgp
 Plug 'jamessan/vim-gnupg'
-
-" lsp
-Plug 'neovim/nvim-lspconfig'
 
 " lsp autocomplete
 "Plug 'nvim-lua/completion-nvim'
@@ -46,7 +47,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'ray-x/lsp_signature.nvim'
 
-" Vim Script
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
 
@@ -57,10 +57,30 @@ Plug 'gpanders/editorconfig.nvim'
 Plug 'numToStr/Comment.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
+
+Plug 'folke/which-key.nvim'
+
 call plug#end()
 
 let mapleader=","
 
+lua <<end
+require('gitsigns').setup {
+    yadm= {
+        enable = true
+    },
+}
+end
+
+lua<<end
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+require("which-key").setup {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
+}
+end
 
 lua<<end
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

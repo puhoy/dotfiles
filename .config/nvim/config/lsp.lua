@@ -50,4 +50,3 @@ require("mason-lspconfig").setup_handlers {
     --    require("rust-tools").setup {}
     --end
 }
-
