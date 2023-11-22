@@ -21,7 +21,7 @@ set modelines=0
 
 " Show line numbers
 set number
-set relativenumber
+" set relativenumber
 
 " Show file stats
 set ruler
