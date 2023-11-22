@@ -1,46 +1,6 @@
-log_level = 'warn'
+log_level = 'debug'
 log_path = 'log.txt'
 min_column_width = 90
 mpd_address = 'raspberrypi:6600'
 mpd_password = ''
 
-[colors]
-# active_border = '#85678f'
-# cursor_background = '#85678f'
-active_border = '#5e8d87'
-cursor_background = '#5e8d87'
-cursor_foreground = '#d7d8d9'
-foreground = '#b7b8b9'
-foreground_alternate = '#a0a0a0'
-inactive_cursor_background = '#686868'
-inactive_cursor_foreground = '#b7b8b9'
-passive_border = '#a0a0a0'
-
-[keys]
-[keys.general]
-down = 'down'
-go_to_end = 'G'
-go_to_start = 'g'
-quit = 'q'
-switch_column = 'tab'
-switch_column_reverse = 'shift+tab'
-up = 'up'
-
-[keys.library]
-append = 'A'
-enter = 'enter'
-folder_up = 'backspace'
-play_next = 'a'
-
-[keys.queue]
-clear = 'c'
-move_down = 'n'
-move_up = 'm'
-play = 'enter'
-play_toggle = ' '
-remove = 'delete'
-
-[symbols]
-paused = ':'
-playing = '>'
-stopped = '#'

@@ -4,11 +4,14 @@ call plug#begin()
 Plug 'kyazdani42/nvim-web-devicons' " for file icons
 Plug 'kyazdani42/nvim-tree.lua' " needs web-devicons
 
+Plug 'folke/which-key.nvim'
+
 " show git changes
 "Plug 'mhinz/vim-signify'
 Plug 'lewis6991/gitsigns.nvim'
 " git commands in vim
 Plug 'tpope/vim-fugitive'
+
 " diff
 Plug 'sindrets/diffview.nvim'
 
@@ -60,6 +63,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install' }
 
 Plug 'folke/which-key.nvim'
 
+Plug 'folke/zen-mode.nvim'
+
 call plug#end()
 
 let mapleader=","
@@ -100,6 +105,7 @@ nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)
 
 nmap gx :!open <c-r><c-a>
 
+command! Date :r!date "+\%F \%T"
 
 source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/nvim-tree.vim
@@ -119,6 +125,16 @@ source ~/.config/nvim/config/comment_nvim.lua
 source ~/.vimrc
 
 source ~/.config/nvim/config/main.vim
+
+lua << EOF
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+require("which-key").setup {
+  -- your configuration comes here
+  -- or leave it empty to use the default settings
+  -- refer to the configuration section below
+}
+EOF
 
 " open nonexistent file under cursor
 map <leader>gf :e <cfile><cr>
@@ -163,6 +179,15 @@ vim.fn.sign_define("LspDiagnosticsSignInformation",
 vim.fn.sign_define("LspDiagnosticsSignHint",
     {text = "﫠"})
 EOF
+
+lua << EOF
+vim.opt.listchars = {
+  tab = '│ ',
+}
+vim.opt.list = true
+EOF
+
+
 syntax on
 
 set guifont=DejaVu_Sans_Mono:h10
