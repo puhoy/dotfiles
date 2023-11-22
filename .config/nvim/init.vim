@@ -65,9 +65,39 @@ Plug 'folke/which-key.nvim'
 
 Plug 'folke/zen-mode.nvim'
 
+" icon chooser
+Plug 'nvim-telescope/telescope-symbols.nvim'
+
+" show colors
+Plug 'norcalli/nvim-colorizer.lua'
+
 call plug#end()
 
 let mapleader=","
+
+lua <<end
+require("diffview").setup({
+  view = {
+    -- Configure the layout and behavior of different types of views.
+    -- Available layouts:
+    --  'diff1_plain'
+    --    |'diff2_horizontal'
+    --    |'diff2_vertical'
+    --    |'diff3_horizontal'
+    --    |'diff3_vertical'
+    --    |'diff3_mixed'
+    --    |'diff4_mixed'
+    -- For more info, see ':h diffview-config-view.x.layout'.
+    merge_tool = {
+      -- Config for conflicted files in diff views during a merge or rebase.
+      layout = "diff3_mixed",
+	  disable_diagnostics = true,   -- Temporarily disable diagnostics for conflict buffers while in the view.
+      winbar_info = true,
+    },
+  },
+})
+end
+
 
 lua <<end
 require('gitsigns').setup {
@@ -97,6 +127,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  }
 )
 end
+
 
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 let g:VM_mouse_mappings = 1
@@ -193,6 +224,7 @@ syntax on
 set guifont=DejaVu_Sans_Mono:h10
 
 
+lua require'colorizer'.setup()
 "" dependencies
 " pip 
 " - flake
