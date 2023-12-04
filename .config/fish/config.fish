@@ -44,5 +44,4 @@ end
     # cat $tmp_file | lolcat -r
 # end
 
-fzf_key_bindings
 
