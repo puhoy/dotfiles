@@ -52,6 +52,8 @@ Plug 'ray-x/lsp_signature.nvim'
 
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/trouble.nvim'
+" show diagnostics in virtual text
+Plug 'https://git.sr.ht/~whynothugo/lsp_lines.nvim'
 
 Plug 'chrisbra/csv.vim'
 
@@ -74,6 +76,10 @@ Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()
 
 let mapleader=","
+
+lua <<end
+require("lsp_lines").setup()
+end
 
 lua <<end
 require("diffview").setup({
@@ -101,8 +107,9 @@ end
 
 lua <<end
 require('gitsigns').setup {
+	_signs_staged_enable = true,
     yadm= {
-        enable = true
+        enable = true,
     },
 }
 end
@@ -193,7 +200,7 @@ lua << EOF
             information = "",
             other = "﫠"
         },
-        auto_open = true,
+        auto_open = false,
         auto_close = true,
         use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
         mode = "document_diagnostics", -- "lsp_workspace_diagnostics", "lsp_document_diagnostics", "quickfix", "lsp_references", "loclist"
