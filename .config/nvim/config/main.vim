@@ -5,8 +5,8 @@ set nocompatible
 filetype off
 "filetype plugin on
 
-" autosave & syntaxcheck (silent hides errors for unnamed buffers)
-au FocusLost * :wa "|:SyntasticCheck
+" autosave
+au FocusLost * :wa
 
 " check for file changes that happened outside of vim
 au CursorHold,CursorHoldI * checktime
@@ -22,8 +22,9 @@ set background=dark
 "colorscheme tokyonight
 
 "colorscheme gruvbox
-colorscheme kanagawa
+"colorscheme kanagawa
 "set background=light "light theme
+colorscheme gruvbox-material
 
 "set background=light
 "colorscheme PaperColor
