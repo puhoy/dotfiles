@@ -26,10 +26,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	}
 )
 
-local cfg = {
-	floating_window = true,
-	hint_enable = false,
-}
 
 
 vim.cmd("nnoremap <leader>xx <cmd>TroubleToggle<cr>")
@@ -43,7 +39,6 @@ vim.api.nvim_create_user_command("Date", ":r!date \"+%F %T\"", {})
 
 vim.cmd("source ~/.config/nvim/config/airline.vim")
 vim.cmd("source ~/.config/nvim/config/nvim-tree.vim")
-require("nvim-tree")
 vim.cmd("source ~/.config/nvim/config/wiki.vim")
 
 

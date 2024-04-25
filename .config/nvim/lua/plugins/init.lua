@@ -15,14 +15,6 @@ return {
 	-- " pgp
 	"jamessan/vim-gnupg",
 
-	-- " lsp autocomplete
-	-- ""nvim-lua/completion-nvim"
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	-- " "hrsh7th/cmp-nvim-lsp-signature-help"
-	"hrsh7th/cmp-cmdline",
-	"hrsh7th/nvim-cmp",
 
 	-- " treesitter completion source
 	"nvim-treesitter/completion-treesitter",
@@ -43,6 +35,10 @@ return {
 	{
 		"ray-x/lsp_signature.nvim",
 		setup = function()
+			local cfg = {
+				floating_window = true,
+				hint_enable = false,
+			}
 			require "lsp_signature".setup(cfg)
 		end
 	},
