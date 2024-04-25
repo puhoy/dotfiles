@@ -9,10 +9,18 @@ return {
 		end,
 	},
 	{
+		-- ellisonleao/gruvbox has problems with strike-through in markdown
 		"sainnhe/gruvbox-material",
 		config = function()
+			vim.g.airline_theme = 'gruvbox_material'
+
 			vim.background = "dark"
+			vim.g.gruvbox_material_foreground = 'original'
+			vim.g.gruvbox_material_statusline_style = 'original'
 			vim.g.gruvbox_material_background = 'hard'
+			vim.g.gruvbox_material_better_performance = 1
+			vim.g.gruvbox_material_enable_italic = 1
+			vim.g.gruvbox_material_ui_contrast = 'high'
 		end
 	},
 	"srcery-colors/srcery-vim",
