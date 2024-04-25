@@ -26,8 +26,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	}
 )
 
-
-
 vim.cmd("nnoremap <leader>xx <cmd>TroubleToggle<cr>")
 vim.g.VM_mouse_mappings = 1
 vim.cmd("nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)")
@@ -37,7 +35,6 @@ vim.cmd("nmap gx :!open <c-r><c-a>")
 
 vim.api.nvim_create_user_command("Date", ":r!date \"+%F %T\"", {})
 
-vim.cmd("source ~/.config/nvim/config/airline.vim")
 vim.cmd("source ~/.config/nvim/config/nvim-tree.vim")
 vim.cmd("source ~/.config/nvim/config/wiki.vim")
 

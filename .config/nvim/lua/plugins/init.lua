@@ -5,9 +5,8 @@ return {
 	-- " diff
 	"sindrets/diffview.nvim",
 
-	"vim-airline/vim-airline",
-	"vim-airline/vim-airline-themes",
-
+	-- "vim-airline/vim-airline",
+	-- "vim-airline/vim-airline-themes",
 
 	-- " fuzzy finder
 	"nvim-lua/plenary.nvim",
@@ -15,26 +14,11 @@ return {
 	-- " pgp
 	"jamessan/vim-gnupg",
 
-
 	-- " treesitter completion source
 	"nvim-treesitter/completion-treesitter",
-
-	"neovim/nvim-lspconfig",
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		config = function()
-			require 'nvim-treesitter.configs'.setup {
-				ensure_installed = "all", -- "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-				highlight = {
-					enable = true, -- false will disable the whole extension
-				},
-			}
-		end
-	},
 	{
 		"ray-x/lsp_signature.nvim",
-		setup = function()
+		config = function()
 			local cfg = {
 				floating_window = true,
 				hint_enable = false,

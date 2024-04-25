@@ -12,8 +12,6 @@ return {
 		-- ellisonleao/gruvbox has problems with strike-through in markdown
 		"sainnhe/gruvbox-material",
 		config = function()
-			vim.g.airline_theme = 'gruvbox_material'
-
 			vim.background = "dark"
 			vim.g.gruvbox_material_foreground = 'original'
 			vim.g.gruvbox_material_statusline_style = 'original'

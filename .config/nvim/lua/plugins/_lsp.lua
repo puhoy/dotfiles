@@ -1,19 +1,86 @@
 return {
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require 'nvim-treesitter.configs'.setup {
+				ensure_installed = "all", -- "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+				highlight = {
+					enable = true, -- false will disable the whole extension
+				},
+			}
+		end
+	},
+	{
+		'nvim-lualine/lualine.nvim',
+		dependencies = {
+			'nvim-tree/nvim-web-devicons',
+			"SmiteshP/nvim-navic",
+			"sainnhe/gruvbox-material",
+		},
+		config = function()
+			local navic = require("nvim-navic")
+			require("lualine").setup({
+				sections = {
+					lualine_c = {
+						{
+							function()
+								return navic.get_location()
+							end,
+							cond = function()
+								return navic.is_available()
+							end
+						},
+					}
+				},
+				-- OR in winbar
+				winbar = {
+					lualine_c = {
+						{
+							function()
+								return navic.get_location()
+							end,
+							cond = function()
+								return navic.is_available()
+							end
+						},
+					}
+				},
+				options = {
+					theme = 'gruvbox-material'
+				}
+			})
+		end,
+	},
+	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		dependencies = {
+			{
+				-- breadcrumbs
+				"SmiteshP/nvim-navic",
+			},
+
+			{
+				"neovim/nvim-lspconfig",
+				lazy = false,
+			},
 			{
 				"williamboman/mason.nvim",
 				lazy = false,
 			}
 		},
 		config = function()
+			local navic = require("nvim-navic")
 			require("mason").setup()
 			-- lsp server setup
 
 			-- Use an on_attach function to only map the following keys
 			-- after the language server attaches to the current buffer
 			local on_attach = function(client, bufnr)
+				-- setup breadcrumbs
+				navic.attach(client, bufnr)
+
 				local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 				local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
@@ -69,4 +136,5 @@ return {
 				-- end
 			}
 		end
-	}
+	},
+}
