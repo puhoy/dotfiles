@@ -8,7 +8,7 @@ end
 
 set -gx HOSTNAME (hostname)
 if status is-interactive;
-    keychain --quiet --nogui ~/.ssh/id_rsa ~/.ssh/tide-jan
+    keychain --quiet --nogui ~/.ssh/id_rsa
     [ -e $HOME/.keychain/$HOSTNAME-fish ]; and source $HOME/.keychain/$HOSTNAME-fish
 end
 
@@ -21,12 +21,8 @@ contains $HOME/.local/pipx/venvs $fish_user_paths; or set -Ua fish_user_paths $H
 set -x N_PREFIX $HOME/n_node_versions
 contains $HOME/n_node_versions/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/n_node_versions/bin
 
-function proj
-    set folder "$(find ~/code* -name .git -type d -prune | fzf)/../" && cd $folder
-end
-
-function now
-    cd ~/notes && nvim journal/$(date '+%Y/%m.md')
+function todo
+    nvim -c ":e sharednotes/todo.md" ~/notes
 end
 
 #function fish_greeting
@@ -43,5 +39,20 @@ end
 
     # cat $tmp_file | lolcat -r
 # end
+
+function fish_greeting
+	set current_dir (dirname (status --current-filename))
+
+	begin
+		# leave linebreaks in when writing to var
+		set -l IFS
+
+		set out (
+			ddate
+			$current_dir/moonphase.sh; 
+			)
+	end
+	echo $out | lolcat
+end
 
 
