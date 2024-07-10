@@ -24,6 +24,9 @@ contains $HOME/n_node_versions/bin $fish_user_paths; or set -Ua fish_user_paths 
 function todo
     nvim -c ":e sharednotes/todo.md" ~/notes
 end
+function now
+    nvim -c ":WikiNow" ~/notes
+end
 
 #function fish_greeting
     # 

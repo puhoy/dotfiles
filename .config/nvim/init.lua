@@ -48,14 +48,13 @@ vim.o.timeoutlen = 300
 
 
 -- " open nonexistent file under cursor
-vim.keymap.set('n', '<leader>gf', ':e <cfile><cr>')
+vim.api.nvim_set_keymap('n', '<leader>gf', ':e <cfile><cr>', { noremap = true })
 
 -- move through visual wrapped lines instead of real lines
--- vim.keymap.set("<silent>", "<UP> gk")
-vim.keymap.set('n', '<silent> <UP>', 'gk', { noremap = true })
-vim.keymap.set('n', '<silent> <DOWN>', 'gj', { noremap = true })
-vim.keymap.set('n', '<silent> 0', 'g0', { noremap = true })
-vim.keymap.set('n', '<silent> $', 'g$', { noremap = true })
+vim.api.nvim_set_keymap('n', '<UP>', 'gk', { noremap = true })
+vim.api.nvim_set_keymap('n', '<DOWN>', 'gj', { noremap = true })
+vim.api.nvim_set_keymap('n', '0', 'g0', { noremap = true })
+vim.api.nvim_set_keymap('n', '$', 'g$', { noremap = true })
 
 -- " append random alphanumeric string to current line
 vim.api.nvim_create_user_command("Random",

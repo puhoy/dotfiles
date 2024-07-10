@@ -41,4 +41,13 @@ return {
 		build = "cd app && npm install"
 	},
 	"folke/zen-mode.nvim",
+	-- 	{
+	-- 	"preservim/vim-markdown",
+	-- 	dependencies = { 'godlygeek/tabular' },
+	-- 	config = function()
+	-- 		vim.g.vim_markdown_folding_disabled = 1
+	-- 		vim.g.vim_markdown_folding_disabled = 1
+	-- 		vim.g.vim_markdown_toc_autofit = 1
+	-- 	end
+	-- }
 }

@@ -4,6 +4,7 @@ return {
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-emoji",
 	-- " "hrsh7th/cmp-nvim-lsp-signature-help"
 	"hrsh7th/cmp-cmdline",
 	{
@@ -38,6 +39,7 @@ return {
 				sources = {
 					{ name = 'nvim_lsp' },
 					{ name = 'path' },
+					{ name = 'emoji' },
 					-- { name = 'nvim_lsp_signature_help' },
 					-- For vsnip user.
 					-- { name = 'vsnip' },
