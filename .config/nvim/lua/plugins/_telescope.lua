@@ -1,6 +1,8 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { 'nvim-lua/plenary.nvim' },
+	dependencies = { 
+		'nvim-lua/plenary.nvim',
+	},
 	lazy = false,
 	branch = '0.1.x',
 	config = function(lazy, opts)
@@ -17,10 +19,10 @@ return {
 				mappings = {
 					i = {
 						["<c-d>"] = require("telescope.actions").delete_buffer,
-						["<c-t>"] = require("trouble.providers.telescope").open_with_trouble
+						["<c-t>"] = require("trouble.sources.telescope").open
 					},
 					n = {
-						["<c-t>"] = require("trouble.providers.telescope").open_with_trouble,
+						["<c-t>"] = require("trouble.sources.telescope").open
 						-- ["<Leader>ff"] = require("telescope").project_files
 					},
 				}

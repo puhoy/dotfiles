@@ -26,7 +26,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	}
 )
 
-vim.cmd("nnoremap <leader>xx <cmd>TroubleToggle<cr>")
 vim.g.VM_mouse_mappings = 1
 vim.cmd("nmap <A-LeftMouse> <Plug>(VM-Mouse-Cursor)")
 

@@ -41,6 +41,16 @@ return {
 		build = "cd app && npm install"
 	},
 	"folke/zen-mode.nvim",
+	{
+		"rickhowe/wrapwidth",
+		lazy = false,
+		config = function()
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+				pattern = { "*.md" },
+				command = "Wrapwidth 80",
+			})
+		end
+	},
 	-- 	{
 	-- 	"preservim/vim-markdown",
 	-- 	dependencies = { 'godlygeek/tabular' },
