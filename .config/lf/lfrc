@@ -1,0 +1,12 @@
+set previewer ~/.config/lf/scope-lf-wrapper.sh
+set sixel true
+map i $LESSOPEN='| ~/.config/lf/scope-lf-wrapper.sh %s' less -R $f
+
+map o &mimeopen $f
+map O $mimeopen --ask $f
+
+cmd open &{{
+	xdg-open "$fx"
+}}
+
+map <enter> :open
