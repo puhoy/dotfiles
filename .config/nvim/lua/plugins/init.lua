@@ -51,6 +51,7 @@ return {
 			})
 		end
 	},
+	"73/vim-klog",
 	-- 	{
 	-- 	"preservim/vim-markdown",
 	-- 	dependencies = { 'godlygeek/tabular' },
