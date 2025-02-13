@@ -12,47 +12,6 @@ return {
 		end
 	},
 	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = {
-			'nvim-tree/nvim-web-devicons',
-			"SmiteshP/nvim-navic",
-			"sainnhe/gruvbox-material",
-		},
-		config = function()
-			local navic = require("nvim-navic")
-			require("lualine").setup({
-				sections = {
-					lualine_c = {
-						{
-							function()
-								return navic.get_location()
-							end,
-							cond = function()
-								return navic.is_available()
-							end
-						},
-					}
-				},
-				-- OR in winbar
-				winbar = {
-					lualine_c = {
-						{
-							function()
-								return navic.get_location()
-							end,
-							cond = function()
-								return navic.is_available()
-							end
-						},
-					}
-				},
-				options = {
-					theme = 'gruvbox-material'
-				}
-			})
-		end,
-	},
-	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		dependencies = {

@@ -7,6 +7,9 @@ return {
 	},
 	config = function()
 		require("nvim-tree").setup {
+			view                = {
+				width = 30,
+			},
 			git                 = {
 				enable = true,
 				ignore = false,
@@ -40,6 +43,11 @@ return {
 			filters             = {
 				custom = {
 					'__pycache__',
+				},
+			},
+			actions             = {
+				open_file = {
+					-- resize_window = false,
 				},
 			},
 			renderer            = {

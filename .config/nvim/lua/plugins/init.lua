@@ -16,6 +16,13 @@ return {
 
 	-- " treesitter completion source
 	"nvim-treesitter/completion-treesitter",
+
+	"kyazdani42/nvim-web-devicons",
+	"chrisbra/csv.vim",
+	"gpanders/editorconfig.nvim",
+	"folke/zen-mode.nvim",
+	"73/vim-klog",
+
 	{
 		"ray-x/lsp_signature.nvim",
 		config = function()
@@ -26,9 +33,6 @@ return {
 			require "lsp_signature".setup(cfg)
 		end
 	},
-	"kyazdani42/nvim-web-devicons",
-	"chrisbra/csv.vim",
-	"gpanders/editorconfig.nvim",
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
@@ -40,7 +44,6 @@ return {
 		"iamcco/markdown-preview.nvim",
 		build = "cd app && npm install"
 	},
-	"folke/zen-mode.nvim",
 	{
 		"rickhowe/wrapwidth",
 		lazy = false,
@@ -51,7 +54,6 @@ return {
 			})
 		end
 	},
-	"73/vim-klog",
 	-- 	{
 	-- 	"preservim/vim-markdown",
 	-- 	dependencies = { 'godlygeek/tabular' },
