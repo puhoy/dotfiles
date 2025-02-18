@@ -24,9 +24,10 @@ set $term /usr/bin/foot
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 
-set $bemenu_options -i -m all --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12" --list 25
-set $menu_command bemenu $bemenu_options
-set $menu dmenu_path | $menu_command | xargs swaymsg exec
+# set $bemenu_options -i -m all --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12" --list 25
+# set $menu_command bemenu $bemenu_options
+# set $menu dmenu_path | $menu_command | xargs swaymsg exec
+set $menu wmenu-run
 
 ### Output configuration
 #
@@ -58,19 +59,13 @@ seat * hide_cursor 60000
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+input "type:touchpad" {
     dwt enabled
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
 }
 
-input "2:14:ETPS/2_Elantech_Touchpad" {
-    dwt enabled
-    tap enabled
-    natural_scroll enabled
-    middle_emulation enabled
-}
 
 input type:tablet_pad map_to_output HDMI-A-2
 input type:tablet_tool map_to_output HDMI-A-2
@@ -151,27 +146,27 @@ font pango:DejaVu Sans Mono 8
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
     # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -282,7 +277,7 @@ exec gammastep-indicator -t 5700:4000 -l 53.5:9.9 &
 exec mako --default-timeout 5000 &
 exec syncthing -no-browser &
 exec kanshi &
-exec ~/.config/sway/random_wallpaper.sh ~/∞/wallpapers &
+# exec ~/.config/sway/random_wallpaper.sh ~/∞/wallpapers &
 
 # clamshell
 # https://github.com/swaywm/sway/wiki#clamshell-mode
@@ -296,8 +291,8 @@ exec_always ~/.config/sway/clamshell.sh
 bindsym $mod+p exec bepassmenu $bemenu_options
 
 # clipboard
-bindsym $mod+c exec clipman pick --tool=bemenu -T'$bemenu_options'
-bindsym $mod+x exec cat ~/notes/wiki/kaomojis.txt | bemenu --list=25 | wl-copy
+bindsym $mod+c exec clipman pick --tool=CUSTOM -T'wmenu -l 25'
+bindsym $mod+x exec cat ~/notes/wiki/kaomojis.txt | wmenu -l 25 | wl-copy
 
 #lock
 bindsym $mod+Escape exec swaylock -f -c 000000
@@ -326,7 +321,7 @@ bindsym --release button2 kill
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 # pacman -S pamixer light swaylock swayidle pass termite grim slurp mako wl-clipboard
-# clipman: https://github.com/yory8/clipman
+# clipman: https://github.com/chmouel/clipman
 # bepassmenu: https://github.com/puhoy/bepassmenu
 # kanshi: https://aur.archlinux.org/packages/kanshi-git/
 
