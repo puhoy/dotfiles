@@ -288,11 +288,10 @@ exec_always ~/.config/sway/clamshell.sh
 
 ###### keybindings
 
-bindsym $mod+p exec bepassmenu $bemenu_options
-
 # clipboard
 bindsym $mod+c exec clipman pick --tool=CUSTOM -T'wmenu -l 25'
 bindsym $mod+x exec cat ~/notes/wiki/kaomojis.txt | wmenu -l 25 | wl-copy
+bindsym $mod+p exec gopass ls --flat | wmenu -l 25 | xargs --no-run-if-empty gopass show -c
 
 #lock
 bindsym $mod+Escape exec swaylock -f -c 000000
