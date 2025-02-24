@@ -9,7 +9,18 @@ command! WikiAutoCommit :wa |
             \ !cd ~/notes/;
             \ git add -A;
             \ git commit -m "Auto commit";
-command! WikiNow execute ':edit ' . g:wiki_base . 'journal/' . strftime(g:wiki_journal_file_pattern) . '.md'
+" command! WikiNow execute ':edit ' . g:wiki_base . 'journal/' . strftime(g:wiki_journal_file_pattern) . '.md'
+
+function! WikiGoToNow()
+	:silent exec "!cd " . g:wiki_base . ";"
+	:silent exec "!./journal/templates/render_month.sh;"
+	execute ':edit ' . g:wiki_base . 'journal/' . strftime(g:wiki_journal_file_pattern) . '.md'
+	execute '/' . strftime("%d") . "\.$"
+
+endfunction
+
+command! WikiNow execute ':call WikiGoToNow()'
+
 command! Wiki execute ':edit ' . g:wiki_base . 'index.md'
 
 command! -bang -nargs=* WikiTags
