@@ -27,7 +27,27 @@ return {
 			{
 				"williamboman/mason.nvim",
 				lazy = false,
-			}
+			},
+			{
+				-- formatter
+				"stevearc/conform.nvim",
+				event = { "BufReadPre", "BufNewFile" },
+				config = function()
+					local conform = require("conform")
+					conform.setup({
+						formatters_by_ft = {
+							python = { "black" },
+						},
+					})
+					vim.keymap.set({ "n", "v" }, "<F3>", function()
+						conform.format({
+							lsp_fallback = true,
+							async = false,
+							timeout_ms = 500,
+						})
+					end, { desc = "Format file or range (in visual mode)" })
+				end,
+			},
 		},
 		config = function()
 			local navic = require("nvim-navic")
@@ -69,7 +89,7 @@ return {
 				buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
 				buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 				buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-				buf_set_keymap('n', '<F3>', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
+				-- buf_set_keymap('n', '<F3>', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
 			end
 
 			require("mason-lspconfig").setup()
