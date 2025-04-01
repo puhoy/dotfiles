@@ -38,7 +38,7 @@ return {
 
 				sources = {
 					{ name = 'nvim_lsp' },
-					{ name = 'path' },
+					-- { name = 'path' },
 					{ name = 'emoji' },
 					-- { name = 'nvim_lsp_signature_help' },
 					-- For vsnip user.
