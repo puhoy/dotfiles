@@ -29,6 +29,26 @@ return {
 				lazy = false,
 			},
 			{
+				"mfussenegger/nvim-lint",
+				lazy = false,
+				config = function()
+					require('lint').linters_by_ft = {
+						python = { 'mypy' },
+						puppet = { 'puppet-lint' },
+					}
+					vim.api.nvim_create_autocmd({
+						"BufEnter",
+						"InsertLeave",
+						"BufWritePost",
+						"FocusLost",
+					}, {
+						callback = function()
+							require("lint").try_lint()
+						end,
+					})
+				end
+			},
+			{
 				-- formatter
 				"stevearc/conform.nvim",
 				event = { "BufReadPre", "BufNewFile" },
@@ -37,6 +57,8 @@ return {
 					conform.setup({
 						formatters_by_ft = {
 							python = { "black" },
+							ruby = { "ruby-lsp" },
+							puppet = { "puppet-lint" },
 						},
 					})
 					vim.keymap.set({ "n", "v" }, "<F3>", function()
@@ -51,6 +73,9 @@ return {
 		},
 		config = function()
 			local navic = require("nvim-navic")
+			-- silence "doesnt support document symbols"
+			vim.g.navic_silence = true
+
 			require("mason").setup()
 			-- lsp server setup
 

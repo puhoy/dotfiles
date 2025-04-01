@@ -13,6 +13,7 @@ return {
 			modes = {
 				diagnostic = {
 					-- auto_open = true,
+					-- auto_close = true,
 				},
 			},
 			signs = {
