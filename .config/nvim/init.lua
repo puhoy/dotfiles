@@ -83,3 +83,5 @@ vim.opt.list = true
 vim.cmd("syntax on")
 
 vim.g.guifont = "DejaVu_Sans_Mono:h10"
+
+

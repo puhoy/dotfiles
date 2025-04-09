@@ -34,7 +34,7 @@ return {
 				config = function()
 					require('lint').linters_by_ft = {
 						python = { 'mypy' },
-						puppet = { 'puppet-lint' },
+						-- puppet = { 'puppet-lint' },
 					}
 					vim.api.nvim_create_autocmd({
 						"BufEnter",
@@ -76,7 +76,9 @@ return {
 			-- silence "doesnt support document symbols"
 			vim.g.navic_silence = true
 
-			require("mason").setup()
+			require("mason").setup({
+				log_level = vim.log.levels.DEBUG,
+			})
 			-- lsp server setup
 
 			-- Use an on_attach function to only map the following keys
@@ -125,6 +127,27 @@ return {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup { on_attach = on_attach }
 				end,
+
+				-- !!!!
+				-- puppet needs the "puppet" package installed and deinstalled, which leaves
+				-- facter
+				-- ruby-augeas
+				-- ruby-concurrent
+				-- ruby-deep_merge
+				-- ruby-fast_gettext
+				-- ruby-locale
+				-- ruby-multi_json
+				-- ruby-puppet-resource_api
+				-- ruby-racc
+				-- ruby-scanf
+				-- ruby-semantic_puppet
+				-- on the system. one of these seem to be needed to run puppet-languageserver.
+				-- !!!!
+				--
+				-- require("lspconfig").puppet.setup {
+				--   cmd = { "~/.local/share/nvim/mason/packages/puppet-editor-services/libexec/puppet-languageserver --stdio" },
+				--   on_attach = on_attach,
+				-- }
 				-- Next, you can provide a dedicated handler for specific servers.
 				-- For example, a handler override for the `rust_analyzer`:
 				--["rust_analyzer"] = function ()

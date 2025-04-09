@@ -69,11 +69,40 @@ return {
 
 			require("markview").setup({
 				markdown = {
-					headings = presets.headings.glow
+					--	headings = presets.headings.glow,
+				},
+				preview = {
+					modes = { "n", "no", "c" },
+					-- hybrid_modes = { "n" },
+					-- linewise_hybrid_mode = true
 				}
+			})
+			require("markview").setup({
+				markdown = {
+					headings = {
+						shift_width = 1,
+					},
+					list_items = {
+						--enable = true,
+						--wrap = false,
+						indent_size = 2,
+						shift_width = 2,
+					},
+				},
 			})
 		end
 	},
+	-- {
+	-- 	'edluffy/hologram.nvim',
+	-- 	lazy = false,
+	-- 	config = function()
+	-- 		require('hologram').setup {
+	-- 			auto_display = true -- WIP automatic markdown image display, may be prone to breaking
+	-- 		}
+	-- 	end
+	--
+	--
+	-- },
 	-- 	{
 	-- 	"preservim/vim-markdown",
 	-- 	dependencies = { 'godlygeek/tabular' },
