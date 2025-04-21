@@ -1,6 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { 
+	dependencies = {
 		'nvim-lua/plenary.nvim',
 	},
 	lazy = false,
@@ -28,6 +28,9 @@ return {
 				}
 			},
 			pickers = {
+				colorscheme = {
+					enable_preview = true
+				},
 				buffers = {
 					mappings = {
 						i = {

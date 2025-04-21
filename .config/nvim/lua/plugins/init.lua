@@ -41,10 +41,6 @@ return {
 		end
 	},
 	{
-		"iamcco/markdown-preview.nvim",
-		build = "cd app && npm install"
-	},
-	{
 		"rickhowe/wrapwidth",
 		lazy = false,
 		config = function()
@@ -69,16 +65,6 @@ return {
 
 			require("markview").setup({
 				markdown = {
-					--	headings = presets.headings.glow,
-				},
-				preview = {
-					modes = { "n", "no", "c" },
-					-- hybrid_modes = { "n" },
-					-- linewise_hybrid_mode = true
-				}
-			})
-			require("markview").setup({
-				markdown = {
 					headings = {
 						shift_width = 1,
 					},
@@ -88,7 +74,7 @@ return {
 						indent_size = 2,
 						shift_width = 2,
 					},
-				},
+				}
 			})
 		end
 	},

@@ -47,8 +47,39 @@ return {
 			-- })
 		end
 	},
-	"srcery-colors/srcery-vim",
+	{
+		"srcery-colors/srcery-vim",
+		config = function()
+			-- has no effect?
+			-- vim.g.srcery_italic = 1
+			-- vim.g.srcery_italic_types = 1
+		end,
+	},
+	"ntk148v/komau.vim",
 	"rebelot/kanagawa.nvim",
+	"https://git.sr.ht/~romainl/vim-bruin",
+	{
+		"zenbones-theme/zenbones.nvim",
+		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
+		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+		-- In Vim, compat mode is turned on as Lush only works in Neovim.
+		dependencies = "rktjmp/lush.nvim",
+		lazy = false,
+		priority = 1000,
+		-- you can set set configuration options here
+		-- config = function()
+		--     vim.g.zenbones_darken_comments = 45
+		--     vim.cmd.colorscheme('zenbones')
+		-- end
+	},
+	{
+		'kvrohit/rasmus.nvim',
+		config = function()
+			vim.g.rasmus_italic_keywords = true
+			vim.g.rasmus_variant = 'monochrome' -- 'dark'
+			vim.g.bold_variables = true
+		end
+	},
 	{
 		"sainnhe/everforest",
 		config = function()
@@ -57,6 +88,12 @@ return {
 			vim.g.everforest_ui_contrast = "high"
 			vim.g.everforest_current_word = 'italic'
 		end,
+	},
+	{
+		"m15a/nvim-srcerite",
+		dependencies = {
+			'Iron-E/nvim-highlite'
+		},
 	},
 
 }
