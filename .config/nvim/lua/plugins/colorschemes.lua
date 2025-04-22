@@ -95,5 +95,9 @@ return {
 			'Iron-E/nvim-highlite'
 		},
 	},
-
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+	},
 }

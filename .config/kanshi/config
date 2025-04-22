@@ -8,6 +8,22 @@ profile t14s_home_external {
 }
 
 
+
+profile dell_7450_work {
+    output eDP-1 enable mode 1920x1200 position 0,0
+	output "Dell Inc. DELL U2412M YPPY0985103L" enable mode 1920x1200 position 1920,0 scale 1
+}
+profile dell_7450_home_standing {
+    output eDP-1 enable mode 1920x1200 position 0,0
+	output "LG Electronics LG Ultra HD 0x00044A00" enable mode 3840x2160 position 1920,0 scale 1.4
+}
+
+profile dell_7450_home {
+    output eDP-1 enable mode 1920x1200 position 0,0
+	output HDMI-A-1 enable mode 1920x1200 position 1920,0 scale 1
+}
+
+
 profile laptop {
 	output eDP-1 enable scale 1.6 mode 2560x1440 position 0,0
 }

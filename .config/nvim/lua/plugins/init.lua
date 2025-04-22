@@ -22,7 +22,6 @@ return {
 	"gpanders/editorconfig.nvim",
 	"folke/zen-mode.nvim",
 	"73/vim-klog",
-
 	{
 		"ray-x/lsp_signature.nvim",
 		config = function()
