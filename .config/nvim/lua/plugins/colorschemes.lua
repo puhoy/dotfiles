@@ -50,9 +50,8 @@ return {
 	{
 		"srcery-colors/srcery-vim",
 		config = function()
-			-- has no effect?
-			-- vim.g.srcery_italic = 1
-			-- vim.g.srcery_italic_types = 1
+			vim.g.srcery_italic = 1
+			vim.g.srcery_italic_types = 1
 		end,
 	},
 	"ntk148v/komau.vim",

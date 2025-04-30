@@ -64,6 +64,7 @@ return {
 
 			require("markview").setup({
 				markdown = {
+					horizontal_rules = presets.horizontal_rules.dashed,
 					headings = {
 						shift_width = 1,
 					},
