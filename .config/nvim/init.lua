@@ -13,7 +13,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = "," -- before lazy init
-require("lazy").setup("plugins")
+require("lazy").setup({
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	-- Configure any other settings here. See the documentation for more details.
+	-- colorscheme that will be used when installing plugins.
+	install = { colorscheme = { "habamax" } },
+	-- automatically check for plugin updates
+	-- checker = { enabled = true },
+	change_detection = { notify = false }
+})
 
 -- config
 
@@ -83,5 +94,3 @@ vim.opt.list = true
 vim.cmd("syntax on")
 
 vim.g.guifont = "DejaVu_Sans_Mono:h10"
-
-

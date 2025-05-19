@@ -119,49 +119,10 @@ return {
 				-- buf_set_keymap('n', '<F3>', '<cmd>lua vim.lsp.buf.format({ async = true })<CR>', opts)
 			end
 
+			vim.lsp.config("*", {
+				on_attach = on_attach,
+			})
 			require("mason-lspconfig").setup()
-			require("mason-lspconfig").setup_handlers {
-				-- The first entry (without a key) will be the default handler
-				-- and will be called for each installed server that doesn't have
-				-- a dedicated handler.
-				function(server_name) -- default handler (optional)
-					require("lspconfig")[server_name].setup { on_attach = on_attach }
-				end,
-
-				-- !!!!
-				-- puppet needs the "puppet" package installed and deinstalled, which leaves
-				-- facter
-				-- ruby-augeas
-				-- ruby-concurrent
-				-- ruby-deep_merge
-				-- ruby-fast_gettext
-				-- ruby-locale
-				-- ruby-multi_json
-				-- ruby-puppet-resource_api
-				-- ruby-racc
-				-- ruby-scanf
-				-- ruby-semantic_puppet
-				-- on the system. one of these seem to be needed to run puppet-languageserver.
-				-- !!!!
-				--
-				-- require("lspconfig").puppet.setup {
-				--   cmd = { "~/.local/share/nvim/mason/packages/puppet-editor-services/libexec/puppet-languageserver --stdio" },
-				--   on_attach = on_attach,
-				-- }
-				-- Next, you can provide a dedicated handler for specific servers.
-				-- For example, a handler override for the `rust_analyzer`:
-				--["rust_analyzer"] = function ()
-				--    require("rust-tools").setup {}
-				--end
-				--
-				--// not working?
-				-- ["ansible"] = function()
-				-- require("ansible").setup({
-				--   filetypes = { "yaml", "yml", "ansible" },
-				--   root_dir = lspconfig.util.root_pattern("roles", "playbooks")
-				-- })
-				-- end
-			}
 		end
 	},
 }

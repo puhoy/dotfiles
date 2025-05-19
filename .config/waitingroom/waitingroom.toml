@@ -1,6 +1,0 @@
-log_level = 'debug'
-log_path = 'log.txt'
-min_column_width = 90
-mpd_address = 'raspberrypi:6600'
-mpd_password = ''
-
