@@ -59,6 +59,8 @@ return {
 							python = { "black" },
 							ruby = { "ruby-lsp" },
 							puppet = { "puppet-lint" },
+							javascript = { "prettier" },
+							css = { "prettier" },
 						},
 					})
 					vim.keymap.set({ "n", "v" }, "<F3>", function()

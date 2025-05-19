@@ -22,7 +22,6 @@ return {
 	"gpanders/editorconfig.nvim",
 	"folke/zen-mode.nvim",
 	"73/vim-klog",
-
 	{
 		"ray-x/lsp_signature.nvim",
 		config = function()
@@ -65,6 +64,17 @@ return {
 
 			require("markview").setup({
 				markdown = {
+					--	headings = presets.headings.glow,
+				},
+				preview = {
+					modes = { "n", "no", "c" },
+					-- hybrid_modes = { "n" },
+					-- linewise_hybrid_mode = true
+				}
+			})
+			require("markview").setup({
+				markdown = {
+					horizontal_rules = presets.horizontal_rules.dashed,
 					headings = {
 						shift_width = 1,
 					},

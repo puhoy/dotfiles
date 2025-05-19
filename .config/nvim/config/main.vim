@@ -24,7 +24,9 @@ set background=dark
 "colorscheme gruvbox
 "colorscheme kanagawa
 "set background=light "light theme
-colorscheme gruvbox-material
+" colorscheme gruvbox-material
+colorscheme srcery
+set cursorline
 
 "set background=light
 "colorscheme PaperColor
