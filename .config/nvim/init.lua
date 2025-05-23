@@ -67,9 +67,24 @@ vim.api.nvim_set_keymap('n', '0', 'g0', { noremap = true })
 vim.api.nvim_set_keymap('n', '$', 'g$', { noremap = true })
 
 -- " append random alphanumeric string to current line
-vim.api.nvim_create_user_command("Random",
-	":call setline(line('.'), getline(line('.')) .  system(\"strings -n 1 < /dev/urandom |  tr -dc 'a-zA-Z0-9' | fold -w \" . <f-args> . \" |  head -n 1 | tr -d '\n'\") ",
-	{})
+-- https://gist.github.com/haggen/2fd643ea9a261fea2094?permalink_comment_id=4496230#gistcomment-4496230
+vim.api.nvim_create_user_command("Random", function(details)
+		local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+		local sets = {{97, 122}, {65, 90}, {48, 57}} -- a-z, A-Z, 0-9
+		local r = ""
+		length = tonumber(details.fargs[1])
+		for i = 1, length do
+			math.randomseed(os.clock() ^ 5)
+			local charset = sets[ math.random(1, #sets) ]
+			r = r .. string.char(math.random(charset[1], charset[2]))
+		end
+		print(r)
+		vim.api.nvim_buf_set_text(0, row - 1, col + 1, row - 1, col + 1, { r })
+	end,
+	{nargs = 1,})
+
+-- ":call setline(line('.'), getline(line('.')) .  system(\"strings -n 1 < /dev/urandom |  tr -dc 'a-zA-Z0-9' | fold -w \" . <f-args> . \" |  head -n 1 | tr -d '\n'\") ",
+	-- { nargs = 1,})
 -- command! -nargs=1 Random :call setline(line('.'), getline(line('.')) .  system("strings -n 1 < /dev/urandom |  tr -dc 'a-zA-Z0-9' | fold -w " . <f-args> . " |  head -n 1 | tr -d '\n'"))
 -- " set working dir to current file
 -- "autocmd BufEnter * silent! lcd %:p:h
