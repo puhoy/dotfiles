@@ -50,9 +50,20 @@ end
     # cat $tmp_file | lolcat -r
 # end
 
+function get_available_updates
+	# see ~/.config/systemd/user/checkupdates.service+timer
+	set updatesfile ~/.checkupdates.txt
+	if not test -f "$updatesfile"
+		echo "no updates"
+	end
+	set lines (cat "$updatesfile" | wc -l)
+	if test "$lines" != 0
+		echo "$lines updates available"
+	end
+end
+
 function fish_greeting
 	set current_dir (dirname (status --current-filename))
-
 	begin
 		# leave linebreaks in when writing to var
 		set -l IFS
@@ -60,6 +71,7 @@ function fish_greeting
 		set out (
 			ddate
 			$current_dir/moonphase.sh; 
+			get_available_updates
 			)
 	end
 	echo $out | lolcat

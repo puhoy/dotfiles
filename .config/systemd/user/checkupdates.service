@@ -1,0 +1,11 @@
+[Unit]
+Description=check for updates
+After=network.target
+
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c 'checkupdates > .checkupdates.txt'
+
+[Install]
+WantedBy=default.target
