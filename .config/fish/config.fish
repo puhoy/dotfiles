@@ -50,15 +50,30 @@ end
     # cat $tmp_file | lolcat -r
 # end
 
+function get_last_pacman_update
+	# cat /var/log/pacman.log
+	# [2025-05-23T12:15:55+0200] [PACMAN] starting full system upgrade
+	set line (grep 'starting full system upgrade' /var/log/pacman.log | tail -1)
+	set date_str (echo "$line" | cut -d "[" -f2 | cut -d "]" -f1)
+	set timestamp (date -d "$date_str" "+%s")
+	echo "$timestamp"
+end
+
+
 function get_available_updates
 	# see ~/.config/systemd/user/checkupdates.service+timer
 	set updatesfile ~/.checkupdates.txt
 	if not test -f "$updatesfile"
 		echo "no updates"
 	end
-	set lines (cat "$updatesfile" | wc -l)
-	if test "$lines" != 0
-		echo "$lines updates available"
+	set last_update_ts (get_last_pacman_update)
+	if test $last_update_ts -gt (date -r "$updatesfile" "+%s")
+		echo "no updates (last pacman run newer than updatesfile)"
+	else
+		set lines (cat "$updatesfile" | wc -l)
+		if test "$lines" != 0
+			echo "$lines updates available"
+		end
 	end
 end
 
@@ -69,7 +84,7 @@ function fish_greeting
 		set -l IFS
 
 		set out (
-			ddate
+		#ddate
 			$current_dir/moonphase.sh; 
 			get_available_updates
 			)
