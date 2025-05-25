@@ -2,8 +2,8 @@
 Description=Run checkupdates
 
 [Timer]
-OnBootSec=30min
-OnUnitActiveSec=3h
+OnBootSec=15min
+OnUnitActiveSec=1h
 
 [Install]
 WantedBy=timers.target

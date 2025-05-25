@@ -2,10 +2,10 @@
 Description=check for updates
 After=network.target
 
-
 [Service]
 Type=simple
-ExecStart=/bin/sh -c 'checkupdates > .checkupdates.txt'
+ExecStart=/bin/sh -c 'echo "running checkupdates" && checkupdates > .checkupdates.txt'
+SuccessExitStatus=0 2
 
 [Install]
 WantedBy=default.target

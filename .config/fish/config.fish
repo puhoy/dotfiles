@@ -64,15 +64,17 @@ function get_available_updates
 	# see ~/.config/systemd/user/checkupdates.service+timer
 	set updatesfile ~/.checkupdates.txt
 	if not test -f "$updatesfile"
-		echo "no updates"
+		# echo "no updates"
 	end
 	set last_update_ts (get_last_pacman_update)
 	if test $last_update_ts -gt (date -r "$updatesfile" "+%s")
-		echo "no updates (last pacman run newer than updatesfile)"
+		# echo "no updates (last pacman run newer than updatesfile)"
 	else
 		set lines (cat "$updatesfile" | wc -l)
 		if test "$lines" != 0
 			echo "$lines updates available"
+		else
+			# echo "no updates"
 		end
 	end
 end
