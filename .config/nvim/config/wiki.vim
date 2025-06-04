@@ -7,6 +7,7 @@ let g:wiki_note_file_pattern = 'journal/notes/%Y/%m%d_' " argument will be appen
 
 command! WikiAutoCommit :wa | 
             \ !cd ~/notes/;
+			\ git pull;
             \ git add -A;
             \ git commit -m "Auto commit";
 " command! WikiNow execute ':edit ' . g:wiki_base . 'journal/' . strftime(g:wiki_journal_file_pattern) . '.md'
