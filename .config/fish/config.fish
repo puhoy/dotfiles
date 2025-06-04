@@ -72,7 +72,7 @@ function get_available_updates
 	else
 		set lines (cat "$updatesfile" | wc -l)
 		if test "$lines" != 0
-			echo "$lines updates available"
+			echo "$lines updates available" | cowsay
 		else
 			# echo "no updates"
 		end
@@ -86,7 +86,7 @@ function fish_greeting
 		set -l IFS
 
 		set out (
-		#ddate
+			uptime
 			$current_dir/moonphase.sh; 
 			get_available_updates
 			)
