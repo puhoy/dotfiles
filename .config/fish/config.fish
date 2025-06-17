@@ -86,7 +86,6 @@ function fish_greeting
 		set -l IFS
 
 		set out (
-		#ddate
 			uptime
 			$current_dir/moonphase.sh; 
 			get_available_updates
