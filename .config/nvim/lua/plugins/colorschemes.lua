@@ -89,12 +89,6 @@ return {
 		end,
 	},
 	{
-		"m15a/nvim-srcerite",
-		dependencies = {
-			'Iron-E/nvim-highlite'
-		},
-	},
-	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,

@@ -167,19 +167,10 @@ font pango:DejaVu Sans Mono 8
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
-
-	# Note: workspaces can have any name you want, not just numbers.
-	# set $workroom 1
-	# bindsym Alt+Shift+1 set $$workroom 1
-	# bindsym Alt+Shift+2 set $$workroom 2
-	# bindsym Alt+Shift+3 set $$workroom 3
-
-	# Switch to workspace
-	# bindsym $mod+o workspace o$workroom
-	# bindsym $mod+shift+o move container to workspace o$workroom
-	bindsym $mod+o workspace o
-	bindsym $mod+shift+o move container to workspace o
-	# We just use 1-10 as the default.
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+    bindsym $mod+o workspace o
+    bindsym $mod+Shift+o move container to workspace o
 #
 # Layout stuff:
 #
@@ -275,27 +266,30 @@ for_window [app_id="firefox"] inhibit_idle fullscreen
 ###### autostart
 
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' \
+          timeout 300 'swaymsg "output * dpms off"' \
                resume 'swaymsg "output * dpms on"' \
+          timeout 600 'swaylock -f -c 000000' \
           before-sleep 'swaylock -f -c 000000'
+
 
 exec nm-applet --indicator -d &
 exec blueman-applet &
-exec xfce4-powermanager &
+# exec xfce4-powermanager &
 exec wl-paste -t text --watch clipman store
 exec gammastep-indicator -t 5700:4000 -l 53.5:9.9 &
-# exec mako --default-timeout 5000 &
 exec syncthing -no-browser &
 exec kanshi &
+# exec mako --default-timeout 5000 &
+#exec syncthing -no-browser &
+# exec kanshi &
 # exec ~/.config/sway/random_wallpaper.sh ~/∞/wallpapers &
 
 # clamshell
 # https://github.com/swaywm/sway/wiki#clamshell-mode
 set $laptop eDP-1
-bindswitch --reload --locked lid:on output $laptop disable
-bindswitch --reload --locked lid:off output $laptop enable
-exec_always ~/.config/sway/clamshell.sh
+# bindswitch --reload --locked lid:on output $laptop disable
+# bindswitch --reload --locked lid:off output $laptop enable
+# exec_always ~/.config/sway/clamshell.sh
 
 ###### keybindings
 
