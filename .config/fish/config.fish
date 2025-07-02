@@ -35,6 +35,14 @@ function track
 	nvim -c ":e timetracking/$(date +%Y)-$(date +%m).klg" -c ":\$" ~/notes
 end
 
+function caat 
+	set empty '      '
+	set head 'ฅ^•ﻌ•^ฅ\n 3   ℇ'
+	set body ' |   |'
+	set feet ' Ｕ"Ｕ'
+	sed -e "s/^/$empty/;0,/./s/^$empty/$head /;s/^$empty/$body /;\$ s/.*/&\n$feet/"
+end
+
 #function fish_greeting
     # 
     # set get_weather curl --silent "https://wttr.in/?format=%l:+%c++%C+|+%t(%f)+|+%w+|+%S%m%s\n"
@@ -88,7 +96,7 @@ function fish_greeting
 		set out (
 			uptime
 			$current_dir/moonphase.sh; 
-			get_available_updates
+			get_available_updates | caat
 			)
 	end
 	echo $out | lolcat
