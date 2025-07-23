@@ -97,6 +97,7 @@ function fish_greeting
 			uptime
 			$current_dir/moonphase.sh; 
 			get_available_updates | caat
+			systemctl list-units --failed --no-pager --legend=false
 			)
 	end
 	echo $out | lolcat

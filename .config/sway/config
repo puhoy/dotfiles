@@ -333,4 +333,6 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 # gpasswd -a <user> video
 # 
 
-
+for_window [app_id="signal"] move container to workspace o, focus
+for_window [app_id="org.telegram.desktop"] move container to workspace o, focus
+for_window [app_id="thunderbird"] move container to workspace number 10
