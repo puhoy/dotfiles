@@ -1,4 +1,4 @@
-output eDP-1 {
+output "todo: t460s internal" {
 	scale 1.6
 	mode 2560x1440
 	position 0,0
@@ -14,12 +14,12 @@ output "LG Electronics LG Ultra HD 0x00044A00"  {
 output "Dell Inc. DELL U2414H 9TG464BO69AL" {
 	scale 1
 	mode 1920x1080
-	alias $t460s_desk
+	alias $home_desk
 }
 
-output "Chimei Innolux Corporation 0x14F2 Unknown" {
-	scale 1.2
-	mode 1920x1080
+output "BOE 0x0A2A Unknown" {
+	scale 1
+	mode 1920x1200
 	position 0,0
 	alias $dell_7450_internal
 }
@@ -41,7 +41,7 @@ profile t460s_standing {
 }
 profile t460s_desk {
 	output $t460s_internal enable
-	output $t460s_desk enable
+	output $home_desk enable
 }
 
 profile dell_7450 {
@@ -53,3 +53,7 @@ profile dell_7450_work_desk {
 }
 
 
+profile dell_7450_home_desk {
+	output $dell_7450_internal enable
+	output $home_desk enable
+}
