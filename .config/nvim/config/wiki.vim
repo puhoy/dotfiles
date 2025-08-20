@@ -16,7 +16,7 @@ function! WikiGoToNow()
 	:silent exec "!cd " . g:wiki_base . ";"
 	:silent exec "!./journal/templates/render_month.sh;"
 	execute ':edit ' . g:wiki_base . 'journal/' . strftime(g:wiki_journal_file_pattern) . '.md'
-	execute '/' . strftime("%d") . "\.$"
+	execute '/, ' . strftime("%d") . "\.$"
 
 endfunction
 
