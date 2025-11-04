@@ -10,6 +10,7 @@ command! WikiAutoCommit :wa |
 			\ git pull;
             \ git add -A;
             \ git commit -m "Auto commit";
+			\ git push;
 " command! WikiNow execute ':edit ' . g:wiki_base . 'journal/' . strftime(g:wiki_journal_file_pattern) . '.md'
 
 function! WikiGoToNow()

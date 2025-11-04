@@ -2,6 +2,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		dependencies = { 'OXY2DEV/markview.nvim' },
 		config = function()
 			require 'nvim-treesitter.configs'.setup {
 				ensure_installed = "all", -- "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -125,6 +126,25 @@ return {
 				on_attach = on_attach,
 			})
 			require("mason-lspconfig").setup()
+
+-- local port = os.getenv('GDScript_Port') or '6005'
+-- local cmd = vim.lsp.rpc.connect('127.0.0.1', port)
+-- local pipe = '/path/to/godot.pipe' -- I use /tmp/godot.pipe
+--
+-- vim.lsp.start({
+--   name = 'Godot',
+--   cmd = cmd,
+--   root_dir = vim.fs.dirname(vim.fs.find({ 'project.godot', '.git' }, { upward = true })[1]),
+--   on_attach = function(client, bufnr)
+--     vim.api.nvim_command('echo serverstart("' .. pipe .. '")')
+--   end
+-- })
+
+
+
+
+
+
 		end
 	},
 }
