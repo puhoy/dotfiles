@@ -14,6 +14,7 @@ output "LG Electronics LG Ultra HD 0x00044A00"  {
 output "Dell Inc. DELL U2414H 9TG464BO69AL" {
 	scale 1
 	mode 1920x1080
+	position 1920,0
 	alias $home_desk
 }
 
@@ -27,6 +28,7 @@ output "BOE 0x0A2A Unknown" {
 output "Dell Inc. DELL U2412M YPPY0985103L" {
 	mode 1920x1200 
 	scale 1
+	position 1920,0
 	alias $dell_7450_work_desk
 }
 
@@ -51,7 +53,6 @@ profile dell_7450_work_desk {
 	output $dell_7450_internal enable
 	output $dell_7450_work_desk enable
 }
-
 
 profile dell_7450_home_desk {
 	output $dell_7450_internal enable

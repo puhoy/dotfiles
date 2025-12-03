@@ -33,9 +33,11 @@
     syntax-theme = gruvbox-dark
     hyperlinks = true
     #pager = less -r # needed for hyperlinks, but doesnt work?
+	line-numbers = true
+	hunk-header-style = omit
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [diff]
     colorMoved = default

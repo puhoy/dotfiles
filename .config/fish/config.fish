@@ -32,7 +32,8 @@ function now
     nvim -c ":WikiNow" ~/notes
 end
 function track
-	nvim -c ":e timetracking/$(date +%Y)-$(date +%m).klg" -c ":\$" ~/notes
+	./notes/timetracking/render_month.sh
+	nvim -c ":e timetracking/$(date +%Y)/$(date +%Y)-$(date +%m).klg" -c "/$(date +%Y-%m-%d)" ~/notes
 end
 
 function caat 
