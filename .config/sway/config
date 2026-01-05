@@ -226,6 +226,10 @@ mode "resize" {
     bindsym Down resize grow height 10ppt
     bindsym Up resize shrink height 10ppt
     bindsym Right resize grow width 10ppt
+    
+	bindsym 5 resize set 50ppt 50ppt
+	bindsym 6 resize set 66ppt 66ppt
+	bindsym 8 resize set 80ppt 80ppt
 
     # return to default mode
     bindsym Return mode "default"
@@ -335,4 +339,4 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 for_window [app_id="signal"] move container to workspace o, focus
 for_window [app_id="org.telegram.desktop"] move container to workspace o, focus
-for_window [app_id="thunderbird"] move container to workspace number 10
+for_window [app_id="org.mozilla.Thunderbird"] move container to workspace number 10
